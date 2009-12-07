@@ -1,0 +1,23 @@
+<% title "Assignments" %>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Description</th>
+    <th>Due Date</th>
+    <th>Points Possible</th>
+  </tr>
+  <% for assignment in @assignments %>
+    <tr>
+      <td><%=h assignment.name %></td>
+      <td><%=h assignment.description %></td>
+      <td><%=h assignment.due_date %></td>
+      <td><%=h assignment.points_possible %></td>
+      <td><%= link_to "Show", assignment %></td>
+      <td><%= link_to "Edit", edit_assignment_path(assignment) %></td>
+      <td><%= link_to "Destroy", assignment, :confirm => 'Are you sure?', :method => :delete %></td>
+    </tr>
+  <% end %>
+</table>
+
+<p><%= link_to "New Assignment", new_assignment_path %></p>

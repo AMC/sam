@@ -1,0 +1,11 @@
+one:
+  name: MyString
+  description: MyString
+  due_date: 2009-12-06
+  points_possible: 9.99
+
+two:
+  name: MyString
+  description: MyString
+  due_date: 2009-12-06
+  points_possible: 9.99

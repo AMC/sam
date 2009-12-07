@@ -1,20 +1,12 @@
-<% title "User" %>
-
 <p>
-  <strong>Name:</strong>
-  <%=h @user.name %>
-</p>
-<p>
-  <strong>Username:</strong>
-  <%=h @user.username %>
-</p>
-<p>
-  <strong>Password:</strong>
-  <%=h @user.password %>
+  <h2> Courses </h2>
+  <% if permitted_to? :create, @courses  %>  
+    <%= link_to "new", :controller => "courses", :action => "new" %> <br />
+  <% end %>
+<ul>
+  <% for course in @user.courses %>
+    <li><%= link_to course.name + " - " + course.description, course %> </li>
+  <% end %>
+  
 </p>
 
-<p>
-  <%= link_to "Edit", edit_user_path(@user) %> |
-  <%= link_to "Destroy", @user, :confirm => 'Are you sure?', :method => :delete %> |
-  <%= link_to "View All", users_path %>
-</p>

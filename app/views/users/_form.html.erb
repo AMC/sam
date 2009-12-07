@@ -24,6 +24,14 @@
      <% end %>
   </p>
   
+  <p>
+    <%= f.label :courses %><br />
+     <% for course in Course.all %>
+       <%= check_box_tag "user[course_ids][]", course.id, @user.courses.include?(course) %>
+       <%=h course.name %><br />
+     <% end %>
+  </p>
+  
   <p><%= f.submit "Submit" %></p>
   
 <% end %>

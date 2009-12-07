@@ -1,0 +1,21 @@
+<% title "Announcements" %>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Description</th>
+    <th>Course</th>
+  </tr>
+  <% for announcement in @announcements %>
+    <tr>
+      <td><%=h announcement.name %></td>
+      <td><%=h announcement.description %></td>
+      <td><%=h announcement.course_id %></td>
+      <td><%= link_to "Show", announcement %></td>
+      <td><%= link_to "Edit", edit_announcement_path(announcement) %></td>
+      <td><%= link_to "Destroy", announcement, :confirm => 'Are you sure?', :method => :delete %></td>
+    </tr>
+  <% end %>
+</table>
+
+<p><%= link_to "New Announcement", new_announcement_path %></p>

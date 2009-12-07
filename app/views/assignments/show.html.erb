@@ -1,0 +1,24 @@
+<% title "Assignment" %>
+
+<p>
+  <strong>Name:</strong>
+  <%=h @assignment.name %>
+</p>
+<p>
+  <strong>Description:</strong>
+  <%=h @assignment.description %>
+</p>
+<p>
+  <strong>Due Date:</strong>
+  <%=h @assignment.due_date %>
+</p>
+<p>
+  <strong>Points Possible:</strong>
+  <%=h @assignment.points_possible %>
+</p>
+
+<p>
+  <%= link_to "Edit", edit_assignment_path(@assignment) %> |
+  <%= link_to "Destroy", @assignment, :confirm => 'Are you sure?', :method => :delete %> |
+  <%= link_to "View All", assignments_path %>
+</p>

@@ -1,0 +1,16 @@
+<% form_for @announcement do |f| %>
+  <%= f.error_messages %>
+  <p>
+    <%= f.label "Title" %><br />
+    <%= f.text_field :name %>
+  </p>
+  <p>
+    <%= f.label "Announcement" %><br />
+    <%= f.text_area :description %>
+  </p>
+  <p>
+    <%= f.label :course_id %><br />
+    <%= f.collection_select(:course_id, Course.find(:all), :id, :name)%>
+  </p>
+  <p><%= f.submit "Submit" %></p>
+<% end %>

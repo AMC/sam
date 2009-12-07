@@ -1,243 +1,483 @@
-== Welcome to Rails
+Andrew Canfield
+October 12, 2009
+Capstone Project Proposal
 
-Rails is a web-application framework that includes everything needed to create 
-database-backed web applications according to the Model-View-Control pattern. 
+SSSSS  AAAAA  MMMMMMM  
+SS     A   A  M  M  M  
+SSSSS  AAAAA  M  M  M 
+   SS  A   A  M     M
+SSSSS  A   A  M     M                                                        
 
-This pattern splits the view (also called the presentation) into "dumb" templates
-that are primarily responsible for inserting pre-built data in between HTML tags.
-The model contains the "smart" domain objects (such as Account, Product, Person,
-Post) that holds all the business logic and knows how to persist themselves to
-a database. The controller handles the incoming requests (such as Save New Account,
-Update Product, Show Post) by manipulating the model and directing data to the view.
+Simple Academic Manager (SAM)
+----------------------------------------------------------------------------------
 
-In Rails, the model is handled by what's called an object-relational mapping
-layer entitled Active Record. This layer allows you to present the data from
-database rows as objects and embellish these data objects with business logic
-methods. You can read more about Active Record in
-link:files/vendor/rails/activerecord/README.html.
+Program Summary:
+  A simple, easy to use program to facilitate communication between teachers and students including announcements, Assignments, Tests, Grading and Forums.
 
-The controller and view are handled by the Action Pack, which handles both
-layers by its two parts: Action View and Action Controller. These two layers
-are bundled in a single package due to their heavy interdependence. This is
-unlike the relationship between the Active Record and Action Pack that is much
-more separate. Each of these packages can be used independently outside of
-Rails.  You can read more about Action Pack in
-link:files/vendor/rails/actionpack/README.html.
+Why Bother:
+  There are a lot of other academic managers on the market including Blackboard, Angel and other open source alternatives. However, none of these programs are intuitive or simple to use. They over complicate simple tasks and provide too many options which overwhelm both teachers and students.
 
+Goal:
+  Build a solution observing the KISS principle providing a simple, consistent solution to classroom communication.
 
-== Getting Started
+Final Product:
+  On completion of a release candidate, the program will be tested in live classrooms to determine the direction of further development.
 
-1. At the command prompt, start a new Rails application using the <tt>rails</tt> command
-   and your application name. Ex: rails myapp
-2. Change directory into myapp and start the web server: <tt>script/server</tt> (run with --help for options)
-3. Go to http://localhost:3000/ and get "Welcome aboard: You're riding the Rails!"
-4. Follow the guidelines to start developing your application
+Requests for Information:
+  How are students added into the current academic manager? 
+  How are classes created? 
+  Is any information provided, or is all data inputted manually? 
+  If information is provided, is it available in a plain text format? 
+  And would that information be available for testing this software?
 
 
-== Web Servers
+Schedule:  
+Task                                 Duration            Estimated Completion
+ Create classroom framework           2 weeks             10.26.2009
+ Create assignment framework          2 weeks             11.09.2009
+ Create announcements framework       1 week              11.16.2009
+ Create forum                         1 week              11.23.2009
+ Modifications and testing                                12.04.2009
 
-By default, Rails will try to use Mongrel if it's are installed when started with script/server, otherwise Rails will use WEBrick, the webserver that ships with Ruby. But you can also use Rails
-with a variety of other web servers.
-
-Mongrel is a Ruby-based webserver with a C component (which requires compilation) that is
-suitable for development and deployment of Rails applications. If you have Ruby Gems installed,
-getting up and running with mongrel is as easy as: <tt>gem install mongrel</tt>.
-More info at: http://mongrel.rubyforge.org
-
-Say other Ruby web servers like Thin and Ebb or regular web servers like Apache or LiteSpeed or
-Lighttpd or IIS. The Ruby web servers are run through Rack and the latter can either be setup to use
-FCGI or proxy to a pack of Mongrels/Thin/Ebb servers.
-
-== Apache .htaccess example for FCGI/CGI
-
-# General Apache options
-AddHandler fastcgi-script .fcgi
-AddHandler cgi-script .cgi
-Options +FollowSymLinks +ExecCGI
-
-# If you don't want Rails to look in certain directories,
-# use the following rewrite rules so that Apache won't rewrite certain requests
-# 
-# Example:
-#   RewriteCond %{REQUEST_URI} ^/notrails.*
-#   RewriteRule .* - [L]
-
-# Redirect all requests not available on the filesystem to Rails
-# By default the cgi dispatcher is used which is very slow
-# 
-# For better performance replace the dispatcher with the fastcgi one
-#
-# Example:
-#   RewriteRule ^(.*)$ dispatch.fcgi [QSA,L]
-RewriteEngine On
-
-# If your Rails application is accessed via an Alias directive,
-# then you MUST also set the RewriteBase in this htaccess file.
-#
-# Example:
-#   Alias /myrailsapp /path/to/myrailsapp/public
-#   RewriteBase /myrailsapp
-
-RewriteRule ^$ index.html [QSA]
-RewriteRule ^([^.]+)$ $1.html [QSA]
-RewriteCond %{REQUEST_FILENAME} !-f
-RewriteRule ^(.*)$ dispatch.cgi [QSA,L]
-
-# In case Rails experiences terminal errors
-# Instead of displaying this message you can supply a file here which will be rendered instead
-# 
-# Example:
-#   ErrorDocument 500 /500.html
-
-ErrorDocument 500 "<h2>Application error</h2>Rails application failed to start properly"
+After the quarter is complete
+ Testing Engine
 
 
-== Debugging Rails
-
-Sometimes your application goes wrong.  Fortunately there are a lot of tools that
-will help you debug it and get it back on the rails.
-
-First area to check is the application log files.  Have "tail -f" commands running
-on the server.log and development.log. Rails will automatically display debugging
-and runtime information to these files. Debugging info will also be shown in the
-browser on requests from 127.0.0.1.
-
-You can also log your own messages directly into the log file from your code using
-the Ruby logger class from inside your controllers. Example:
-
-  class WeblogController < ActionController::Base
-    def destroy
-      @weblog = Weblog.find(params[:id])
-      @weblog.destroy
-      logger.info("#{Time.now} Destroyed Weblog ID ##{@weblog.id}!")
-    end
-  end
-
-The result will be a message in your log file along the lines of:
-
-  Mon Oct 08 14:22:29 +1000 2007 Destroyed Weblog ID #1
-
-More information on how to use the logger is at http://www.ruby-doc.org/core/
-
-Also, Ruby documentation can be found at http://www.ruby-lang.org/ including:
-
-* The Learning Ruby (Pickaxe) Book: http://www.ruby-doc.org/docs/ProgrammingRuby/
-* Learn to Program: http://pine.fm/LearnToProgram/  (a beginners guide)
-
-These two online (and free) books will bring you up to speed on the Ruby language
-and also on programming in general.
 
 
-== Debugger
+                             Student Home Page
 
-Debugger support is available through the debugger command when you start your Mongrel or
-Webrick server with --debugger. This means that you can break out of execution at any point
-in the code, investigate and change the model, AND then resume execution! 
-You need to install ruby-debug to run the server in debugging mode. With gems, use 'gem install ruby-debug'
-Example:
+ _______________________________________________________________________________
+|  SSSSS  AAAAA  MMMMMMM                    HOME | CALENDAR | SETTINGS | LOGOUT |
+|  SS     A   A  M  M  M                                                        |
+|  SSSSS  AAAAA  M  M  M                                                        |
+|     SS  A   A  M     M                                                        |
+|  SSSSS  A   A  M     M                                                        | 
+|-------------------------------------------------------------------------------|
+|                                                                               |
+|   -My Classes------------------------   -Announcements----------------------  |
+|  |                                   | |                                    | |
+|  | CIS 284  Ruby on Rails     95.0%  | | 10.09.2009  CIS 283  Dave Jones    | |
+|  | CIS 258  .NET              94.2%  | |   Welcome to class, make sure to   | |
+|  |                                   | |   download the lime plugin.        | |
+|   -----------------------------------  |                                    | |
+|                                        | 10.08.2009  CIS 258  Tom Affholter | |
+|   -Assignments-----------------------  |   Welcome to class, please read    | |
+|  |                                   | |   the syllabus and complete all    | |
+|  | CIS 284  Send me an Email  10.20  | |   assignments on time.             | |
+|  |   Send me an email to confirm     | |                                    | |
+|  |   email address            <more> | |                             <more> | |
+|  |                                   |  ------------------------------------  |
+|  | CIS 258  Create a Program  10.22  |                                        |
+|  |   Create a program to show you    |                                        |
+|  |   understand the concepts  <more> |                                        |
+|  |                                   |                                        |
+|   -----------------------------------                                         |
+|                                                                               |
+ -------------------------------------------------------------------------------
 
-  class WeblogController < ActionController::Base
-    def index
-      @posts = Post.find(:all)
-      debugger
-    end
-  end
+Notes:
+Menu
+  Menu at top is displayed at all times and does not change
 
-So the controller will accept the action, run the first line, then present you
-with a IRB prompt in the server window. Here you can do things like:
+My Classes
+  Classes are links to class home page
+  Can sort by course listing or name
+  Current grade is displayed as a percentage and/or letter grade 
 
-  >> @posts.inspect
-  => "[#<Post:0x14a6be8 @attributes={\"title\"=>nil, \"body\"=>nil, \"id\"=>\"1\"}>,
-       #<Post:0x14a6620 @attributes={\"title\"=>\"Rails you know!\", \"body\"=>\"Only ten..\", \"id\"=>\"2\"}>]"
-  >> @posts.first.title = "hello from a debugger"
-  => "hello from a debugger"
+Announcements
+  The most recent announcement are shown first
+  Previous announcements are shown below
+  Additional previous announcements are available by clicking more
+  Can sort by date, course listing, course name, teacher
+  Can filter by date, course listing, course name, teacher   
 
-...and even better is that you can examine how your runtime objects actually work:
+Assignments
+  Shows the assignments due in the upcoming week. (Day +7)  
+  Names are links to the assignment detail page
+  Can sort by due date, class listing or class name
 
-  >> f = @posts.first
-  => #<Post:0x13630c4 @attributes={"title"=>nil, "body"=>nil, "id"=>"1"}>
-  >> f.
-  Display all 152 possibilities? (y or n)
+                               Teacher Home Page
 
-Finally, when you're ready to resume execution, you enter "cont"
+ _______________________________________________________________________________
+|  SSSSS  AAAAA  MMMMMMM                    HOME | CALENDAR | SETTINGS | LOGOUT |
+|  SS     A   A  M  M  M                                                        |
+|  SSSSS  AAAAA  M  M  M                                                        |
+|     SS  A   A  M     M                                                        |
+|  SSSSS  A   A  M     M                                                        | 
+|-------------------------------------------------------------------------------|
+|                                                                               |
+|   -My Classes------------------------   -Announcements----------------------  |
+|  |                             <new> | |                              <new> | |
+|  | CIS 284  Ruby on Rails     <edit> | | 10.09.2009   CIS 284        <edit> | |
+|  | CIS 258  .NET              <edit> | |   Welcome to class, make sure to   | |
+|  |                                   | |   download the lime plugin.        | |
+|   -----------------------------------  |                                    | |
+|                                        | 10.08.2009   CIS 282        <edit> | |
+|   -Assignments-----------------------  |   Welcome to class, your going to  | |
+|  |                             <new> | |   enjoy this. Or else.             | |
+|  | CIS 284  Send me an Email  <edit> | |                                    | |
+|  |   Send me an email to confirm     | |                                    | |
+|  |   email address            <more> | |                             <more> | |
+|  |                                   |  ------------------------------------  |
+|  | CIS 282  Battleship        <edit> |                                        |
+|  |   Sink my battleship!             |                                        |
+|  |                            <more> |                                        |
+|  |                                   |                                        |
+|   -----------------------------------                                         |
+|                                                                               |
+ -------------------------------------------------------------------------------
+
+Notes:
+Layout is nearly identical to student's layout, with the addition of <new> and <edit> buttons
+
+My Classes
+  Only displays the classes the teacher is assigned to
+    When creating a class, you can assign to another teacher
+
+Announcements
+  When adding an announcement you can publish to one class, or all classes   
+
+Assignments
+  When adding an assignment you can publish to one class or all classes
+  
+                               Student Class Page
+
+ _______________________________________________________________________________
+|   SSSSS  AAAAA  MMMMMMM                   HOME | CALENDAR | SETTINGS | LOGOUT |
+|   SS     A   A  M  M  M                                                       |
+|   SSSSS  AAAAA  M  M  M                                                       |
+|      SS  A   A  M     M                                                       |
+|   SSSSS  A   A  M     M                          Class | Assignments | Forums | 
+|-------------------------------------------------------------------------------|
+|                             Welcome to CIS 284                                |
+|   -Class Information-----------------   -Announcements----------------------  |
+|  |                                   | |                                    | |
+|  | My Grade     190 / 200     95.0%  | | 10.09.2009           Dave Jones    | |
+|  | Syllabus                          | |   Welcome to class, make sure to   | |
+|  |                                   | |   download the lime plugin.        | |
+|   -----------------------------------  |                                    | |
+|                                        | 10.08.2009           Dave Jones    | |
+|   -Assignments-----------------------  |   Welcome to class, your going to  | |
+|  |                                   | |   enjoy this. Or else.             | |
+|  | CIS 284  Send me an Email  10.20  | |                                    | |
+|  |   Send me an email to confirm     | |                                    | |
+|  |   email address            <more> | |                             <more> | |
+|  |                                   |  ------------------------------------  |
+|  | CIS 284  Battleship        10.22  |                                        |
+|  |   Sink my battleship!             |                                        |
+|  |                            <more> |                                        |
+|  |                                   |                                        |
+|   -----------------------------------                                         |
+|                                                                               |
+ -------------------------------------------------------------------------------
+ 
+Notes:
+ 
+Menu
+  Class menu is now shown at the bottom of the header 
+    Menu items are the same between classes, but specific to the currently selected class
+     
+Class Information
+  Includes current grade
+  Includes syllabus and any other class documents that are consistent between all classes
+    All other documentation becomes a 0 point assignment
+  
+Announcements
+  Same as home page announcements, but class specific
+  
+Assignments
+  Same as home page assignments, but class specific 
+ 
 
 
-== Console
 
-You can interact with the domain model by starting the console through <tt>script/console</tt>.
-Here you'll have all parts of the application configured, just like it is when the
-application is running. You can inspect domain models, change values, and save to the
-database. Starting the script without arguments will launch it in the development environment.
-Passing an argument will specify a different environment, like <tt>script/console production</tt>.
 
-To reload your controllers and models after launching the console run <tt>reload!</tt>
 
-== dbconsole
 
-You can go to the command line of your database directly through <tt>script/dbconsole</tt>.
-You would be connected to the database with the credentials defined in database.yml.
-Starting the script without arguments will connect you to the development database. Passing an
-argument will connect you to a different database, like <tt>script/dbconsole production</tt>.
-Currently works for mysql, postgresql and sqlite.
 
-== Description of Contents
 
-app
-  Holds all the code that's specific to this particular application.
 
-app/controllers
-  Holds controllers that should be named like weblogs_controller.rb for
-  automated URL mapping. All controllers should descend from ApplicationController
-  which itself descends from ActionController::Base.
+                               Teacher Class Page
 
-app/models
-  Holds models that should be named like post.rb.
-  Most models will descend from ActiveRecord::Base.
+ _______________________________________________________________________________
+|   SSSSS  AAAAA  MMMMMMM                   HOME | CALENDAR | SETTINGS | LOGOUT |
+|   SS     A   A  M  M  M                                                       |
+|   SSSSS  AAAAA  M  M  M                                                       |
+|      SS  A   A  M     M                                                       |
+|   SSSSS  A   A  M     M                          Class | Assignments | Forums | 
+|-------------------------------------------------------------------------------|
+|                             Welcome to CIS 284                                |
+|   -Class Information-----------------   -Announcements----------------------  |
+|  |                                   | |                              <new> | |
+|  | Average      160 / 200     80.0%  | | 10.09.2009                  <edit> | |
+|  | Syllabus                   <edit> | |   Welcome to class, make sure to   | |
+|  |                                   | |   download the lime plugin.        | |
+|   -----------------------------------  |                                    | |
+|                                        | 10.08.2009                  <edit> | |
+|   -Assignments-----------------------  |   Welcome to class, your going to  | |
+|  |                             <new> | |   enjoy this. Or else.             | |
+|  | CIS 284  Send me an Email  <edit> | |                                    | |
+|  |   Send me an email to confirm     | |                                    | |
+|  |   email address            <more> | |                             <more> | |
+|  |                                   |  ------------------------------------  |
+|  | CIS 284  Battleship        <edit> |                                        |
+|  |   Sink my battleship!             |                                        |
+|  |                            <more> |                                        |
+|  |                                   |                                        |
+|   -----------------------------------                                         |
+|                                                                               |
+ -------------------------------------------------------------------------------
 
-app/views
-  Holds the template files for the view that should be named like
-  weblogs/index.html.erb for the WeblogsController#index action. All views use eRuby
-  syntax.
+Notes:
+Layout is similar to student class page with the additions of the <new> and <edit> buttons
 
-app/views/layouts
-  Holds the template files for layouts to be used with views. This models the common
-  header/footer method of wrapping views. In your views, define a layout using the
-  <tt>layout :default</tt> and create a file named default.html.erb. Inside default.html.erb,
-  call <% yield %> to render the view using this layout.
+Class Information
+  Includes overall class grade
 
-app/helpers
-  Holds view helpers that should be named like weblogs_helper.rb. These are generated
-  for you automatically when using script/generate for controllers. Helpers can be used to
-  wrap functionality for your views into methods.
+ 
+ 
+                             Student Assignments Page
 
-config
-  Configuration files for the Rails environment, the routing map, the database, and other dependencies.
+ _______________________________________________________________________________
+|   SSSSS  AAAAA  MMMMMMM                   HOME | CALENDAR | SETTINGS | LOGOUT |
+|   SS     A   A  M  M  M                                                       |
+|   SSSSS  AAAAA  M  M  M                                                       |
+|      SS  A   A  M     M                                                       |
+|   SSSSS  A   A  M     M                          Class | Assignments | Forums | 
+|-------------------------------------------------------------------------------|
+|                                                                               |
+|   -Assignments--------------------------------------------------------------  |
+|  |    SHOW: <all> <upcoming> <completed> <incomplete>                       | |
+|  |          <all> <assignments> <tests> <quizzes>                           | |
+|  |          <ascending> <descending>                                        | |
+|  |                                                                          | |
+|  |  10.20    Send me an Email                                  x/10      %  | |
+|  |             Send me an email to confirm your email address       <more>  | |
+|  |                                                                          | |
+|  |  10.22    Battleship                                        x/100     %  | |
+|  |             Sink my battleship                                   <more>  | |
+|  |                                                                          | |
+|  |  10.08    Read Syllabus                                    10/10   100%  | |
+|  |             Read it, learn it, love it                           <more>  | |
+|  |                                                                          | |
+|   --------------------------------------------------------------------------  |
+|                                                                               | 
+ -------------------------------------------------------------------------------
+ 
+Notes:
 
-db
-  Contains the database schema in schema.rb.  db/migrate contains all
-  the sequence of Migrations for your schema.
+Assignments
+  Can filter by: all, upcoming assignments, completed assignments, or uncompleted assignments
+  Can also filter by: all, assignments only, tests only or quizzes only
+  Can sort in ascending or descending order
+  Default is upcoming, all and ascending
+  Will show points possible, points awarded (if assignment has been graded) and percentage
+  Show brief description with link to the assignment details page
+    Assignment name will also be a link to the details page
+  Will show all assignments on the same page, no pagination required
+ 
+ 
 
-doc
-  This directory is where your application documentation will be stored when generated
-  using <tt>rake doc:app</tt>
+                             Student Assignment Detail Page
 
-lib
-  Application specific libraries. Basically, any kind of custom code that doesn't
-  belong under controllers, models, or helpers. This directory is in the load path.
+ _______________________________________________________________________________
+|   SSSSS  AAAAA  MMMMMMM                   HOME | CALENDAR | SETTINGS | LOGOUT |
+|   SS     A   A  M  M  M                                                       |
+|   SSSSS  AAAAA  M  M  M                                                       |
+|      SS  A   A  M     M                                                       |
+|   SSSSS  A   A  M     M                          Class | Assignments | Forums | 
+|-------------------------------------------------------------------------------|
+|                                                                               |
+|   -Assignments--------------------------------------------------------------  |
+|  |                                                                          | |
+|  |  10.22        Battleship                                    x/100     %  | |
+|  |  Sink my battleship, but first you need to make a game where you can do  | |
+|  |  that. Use double arrays and have fun!                                   | |
+|  |                                                                          | |
+|  |  Files:       Battleship.pdf                                             | |
+|  |               Example.rb                                                 | |
+|  |                                                                          | |
+|  |  [____________] <browse>         Notes: [_____________________________]  | |
+|  |                                                       <submit homework>  | |
+|  |                                                                          | |
+|  |  Submitted:   ACanfield_Battleship.rb                                    | |
+|  |               ACanfield_Battleship_Rev2.rb   Resubmitted with quick fix  | |
+|  |                                                                          | |
+|   --------------------------------------------------------------------------  |
+|                                                                               | 
+|   -Comments-----------------------------------------------------------------  |
+|  |                                                                          | |
+|  |  10.18       Student 01                                 <delete> <edit>  | |
+|  |  The example program will not run for me, please help!                   | |
+|  |                                                                          | |
+|  |  10.19       Student 02                                                  | |
+|  |  It doesn't work for me either, what gives?                              | |
+|  |                                                                          | |
+|  |  10.20       Teacher                                                     | |
+|  |  It worked on my home computer... New file has been uploaded.            | |
+|  |                                                                          | |
+|   --------------------------------------------------------------------------  |
+|                                                                               |
+ -------------------------------------------------------------------------------     
 
-public
-  The directory available for the web server. Contains subdirectories for images, stylesheets,
-  and javascripts. Also contains the dispatchers and the default HTML files. This should be
-  set as the DOCUMENT_ROOT of your web server.
 
-script
-  Helper scripts for automation and generation.
+Notes:
 
-test
-  Unit and functional tests along with fixtures. When using the script/generate scripts, template
-  test files will be generated for you and placed in this directory.
+Assignments
+  Files are downloadable links applicable to this assignment
+  Can also include links in the description area
+  Can submit as many files as they want for the assignment
+    System will not lock students out once they've submitted an assignment 
+    Note area to let teachers know reason for resubmission, or just to say hi
 
-vendor
-  External libraries that the application depends on. Also includes the plugins subdirectory.
-  If the app has frozen rails, those gems also go here, under vendor/rails/.
-  This directory is in the load path.
+Test and Quizzes
+  Similar layout, but includes a button to take test/quiz instead of submitting homework
+
+Comments
+  Comment area to talk about assignment without having to navigate to the forum
+    Instantly able to see if other people had problem with this file
+    Automatically creates thread for assignment in forum
+      Posts are visible in both locations
+
+
+                          Teacher Assignment Detail Page
+
+ _______________________________________________________________________________
+|   SSSSS  AAAAA  MMMMMMM                   HOME | CALENDAR | SETTINGS | LOGOUT |
+|   SS     A   A  M  M  M                                                       |
+|   SSSSS  AAAAA  M  M  M                                                       |
+|      SS  A   A  M     M                                                       |
+|   SSSSS  A   A  M     M                          Class | Assignments | Forums | 
+|-------------------------------------------------------------------------------|
+|                                                                               |
+|   -Assignments--------------------------------------------------------------  |
+|  |                                                         <delete> <edit>  | |
+|  |  10.22        Battleship                                            100  | |
+|  |  Sink my battleship, but first you need to make a game where you can do  | |
+|  |  that. Use double arrays and have fun!                                   | |
+|  |                                                                          | |
+|  |  Files:       Battleship.pdf     <delete>                                | |
+|  |               Example.rb         <delete>                                | |
+|  |                                                                          | |
+|  |  [____________] <browse>         Notes: [_____________________________]  | |
+|  |                                                       <upload homework>  | |
+|  |                                                                          | |
+|  |  <download all>  <download new>  <delete all>                            | |
+|  |      [ ] prepend student name                                            | |
+|  |                                                                          | |
+|  |  Student 01                                              Points [_____]  | |
+|  |    ACanfield_Battleship.rb        These are my notes           <delete>  | |                     
+|  |    ACanfield_Battleship_Rev2.rb   Resubmitted with quick fix   <delete>  | |
+|  |                                                                          | |
+|  |  Student 02                                              Points [_____]  | |
+|  |    JDog_Battleship_Rev2.rb        This assignment was pwned    <delete>  | |
+|  |                                                                          | |
+|   --------------------------------------------------------------------------  |
+|                                                                               | 
+|   -Comments-----------------------------------------------------------------  |
+|  |                                                                          | |
+|  |  10.18       Student 01                                 <delete>         | |
+|  |  The example program will not run for me, please help!                   | |
+|  |                                                                          | |
+|  |  10.19       Student 02                                 <delete>         | |
+|  |  It doesn't work for me either, what gives?                              | |
+|  |                                                                          | |
+|  |  10.20       Teacher                                    <delete> <edit>  | |
+|  |  It worked on my home computer... New file has been uploaded.            | |
+|  |                                                                          | |
+|   --------------------------------------------------------------------------  |
+|                                                                               |
+ -------------------------------------------------------------------------------     
+
+
+Notes:
+Assignments
+  Can upload files to attach to assignment
+    Automatically convert to PDF to prevent reliance on commercial software that may not available to everyone
+  Sort submittals by student
+  Able to download all assignments at once
+  Automatically pre-pend students name to files if box is checked
+  Able to download new assignments since previous download
+  Able to make assignments worth 0 points
+    Useful for distributing lectures, power points, etc
+  Able to award more than the maximum points on assignments to allow for extra credit
+
+Tests and quizzes
+  Similar to assignments, but shows teacher list of questions and answers selected
+  Flags if question's response needs review
+  Flags if questions have student comments
+
+
+Comments
+  Able to edit or delete your own comments
+  Able to delete inappropriate student comments
+                               Tests and Quizzes
+
+Include:
+  Question groups
+    Many questions in group
+    Randomly display x amount of questions in group
+    Can have many groups on each test
+      Use to prevent random questions excluding all questions on a given topic
+  Can assign specific points to each question or question group
+  Required questions
+  Randomization of question order
+  Timer
+  Ability to go forward and backwards through test
+  Ability for students to leave notes on question
+    On teacher detail page show flag if student left note
+    Help weed out bad or overly difficult questions
+  Multiple choice
+  Fill in the blank
+    White list of acceptable answers
+    And answer not on the white list is flagged on teacher detail detail page for review
+      Test results not provided until teacher responds (could show score on everything else)
+        20 questions, 17 correct, 1 under review, 2 wrong
+  Formulas and random numbers to keep math based tests unique
+    Can be multiple choice, wrong answers based off of formulas as well
+
+
+                                 Forums
+
+Single forum to avoid "you posted in the wrong forum" problems
+Threaded message boards to facilitate discussions
+Plain text to start, evaluate if anything else is required
+Ability to edit posts
+  Cannot delete as it would ruin the thread
+Separate area for links
+Separate area for uploads
+
+
+                                 Settings
+
+Email Address
+  Receive Email Alters
+Phone Number
+  Receive Text Messages
+Display Name
+
+
+                           Miscellaneous Notes
+
+When calculating grades, only include assignments that have been graded
+Each assignment can have multiple documents (presentations, notes, etc)
+  Documents that are not specific to an assignment are included as a 0 point assignment
+Tests and Quizzes are included as Assignments
+Students can submit assignments as many times as necessary
+ 
+  
+Maybes:
+  Email or Text Message Alerts the day prior to assignments
+  Email or Text Message Announcements
+  Limit announcements to 160 characters
+  In place editing for teachers
+  When creating a new class, let teacher set the grade equivalents
+    95%+ = A, 85% - 94% = B, etc.
+    That way students don't have to look it up on syllabus
+ 
+Will use mock data for student information
+  ID#, Name, Classes
+
+Will use mock data for class information
+  class designation, name, teacher

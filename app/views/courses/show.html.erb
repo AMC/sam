@@ -1,0 +1,42 @@
+<% title @course.name + " - " + @course.description %>
+
+
+<p>
+  <% if permitted_to? :edit, @course %>
+    <%= link_to "Edit", edit_course_path(@course) %> :
+  <% end %>
+  <% if permitted_to? :destroy, @course %>
+    <%= link_to "Destroy", @course, :confirm => 'Are you sure?', :method => :delete %>
+  <% end %>
+  
+</p>
+
+<p>
+  <h2> Announcements </h2>
+  <% if permitted_to? :edit, @announcement  %>  
+    <%= link_to "new", :controller => "announcements", :action => "new" %> <br />
+  <% end %>
+
+  <% for announcement in @course.announcements %>
+    <%= announcement.name %> -------------
+    <%= announcement.created_at %><br />
+    <%= announcement.description %> <br /> <br />
+
+  <% end %>
+  
+</p>
+
+<p>
+  <h2> Assignments </h2>
+  <% if permitted_to? :edit, @assignments  %>  
+    <%= link_to "new", :controller => "assignments", :action => "new" %> <br />
+  <% end %>
+
+  <% for assignment in @course.assignments %>
+    <%= assignment.name %> -------------
+    <%= assignment.due_date %><br />
+    <%= assignment.description %> <br /> <br />
+
+  <% end %>
+  
+</p>

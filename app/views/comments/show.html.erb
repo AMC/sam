@@ -1,0 +1,18 @@
+<p>
+  <b>Assignment:</b>
+  <%=h @comments.assignment_id %>
+</p>
+
+<p>
+  <b>User:</b>
+  <%=h @comments.user_id %>
+</p>
+
+<p>
+  <b>Text:</b>
+  <%=h @comments.text %>
+</p>
+
+
+<%= link_to 'Edit', edit_comments_path(@comments) %> |
+<%= link_to 'Back', comments_path %>

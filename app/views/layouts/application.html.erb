@@ -8,13 +8,25 @@
   </head>
   <body>
     <div id="container">
+      <div class="info">
+        <%= current_user.name %>
+      </div>
       <div id="menu">
         <% if current_user %>
-          <%= link_to "profile", edit_user_path(current_user.id) %>
+          <%= link_to "home", :controller => "users", :action => "show", :id => current_user.id %> : 
+          <%= link_to "profile", edit_user_path(current_user.id) %> :
           <%= link_to "logout", logout_path %>
         <% else %>
           <%= link_to "login", login_path %>
         <% end %>
+      </div>
+      <div class="temp_menu">
+        <%= link_to "announcements", announcements_path %> :
+        <%= link_to "assignments", assignments_path %> :
+        
+        <%= link_to "roles", roles_path %> :
+        <%= link_to "users", users_path %>
+        
       </div>
       <%- flash.each do |name, msg| -%>
         <%= content_tag :div, msg, :id => "flash_#{name}" %>

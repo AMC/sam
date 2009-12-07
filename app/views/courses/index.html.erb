@@ -1,0 +1,15 @@
+<% title "Courses" %>
+
+<% if permitted_to? :new, @course %>
+  <p><%= link_to "New Course", new_course_path %></p>
+<% end %>
+
+<ul>
+<% for course in @courses %>
+  <li><%= link_to course.name + " - " + course.description, course %></li>
+
+<% end %>
+</ul>
+
+
+

@@ -1,0 +1,20 @@
+<% title "Announcement" %>
+
+<p>
+  <strong>Name:</strong>
+  <%=h @announcement.name %>
+</p>
+<p>
+  <strong>Description:</strong>
+  <%=h @announcement.description %>
+</p>
+<p>
+  <strong>Course:</strong>
+  <%=h @announcement.course_id %>
+</p>
+
+<p>
+  <%= link_to "Edit", edit_announcement_path(@announcement) %> |
+  <%= link_to "Destroy", @announcement, :confirm => 'Are you sure?', :method => :delete %> |
+  <%= link_to "View All", announcements_path %>
+</p>
