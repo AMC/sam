@@ -7922,3 +7922,48 @@ Rendering courses/show
   [4;35;1mAnnouncement Load (0.4ms)[0m   [0mSELECT * FROM "announcements" WHERE ("announcements".course_id = 1) [0m
   [4;36;1mAssignment Load (0.3ms)[0m   [0;1mSELECT * FROM "assignments" WHERE ("assignments".course_id = 1) [0m
 Completed in 52ms (View: 17, DB: 2) | 200 OK [http://localhost/courses/1]
+
+
+Processing UserSessionsController#destroy (for 127.0.0.1 at 2009-12-06 23:56:15) [GET]
+  Parameters: {"action"=>"destroy", "controller"=>"user_sessions"}
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+Redirected to http://localhost:3000/
+Completed in 20ms (DB: 0) | 302 Found [http://localhost/logout]
+
+
+Processing CoursesController#index (for 127.0.0.1 at 2009-12-06 23:56:15) [GET]
+  Parameters: {"action"=>"index", "controller"=>"courses"}
+Permission denied: No matching rules found for index for #<Authorization::GuestUser:0x246358c @role_symbols=[:guest]> (roles [:guest], privileges [:index], context :courses).
+Redirected to http://localhost:3000/login
+Filter chain halted as [:filter_access_filter] rendered_or_redirected.
+Completed in 18ms (DB: 0) | 302 Found [http://localhost/]
+
+
+Processing UserSessionsController#new (for 127.0.0.1 at 2009-12-06 23:56:15) [GET]
+  Parameters: {"action"=>"new", "controller"=>"user_sessions"}
+Rendering template within layouts/application
+Rendering user_sessions/new
+
+ActionView::TemplateError (You have a nil object when you didn't expect it!
+The error occurred while evaluating nil.name) on line #12 of app/views/layouts/application.html.erb:
+9:   <body>
+10:     <div id="container">
+11:       <div class="info">
+12:         <%= current_user.name %>
+13:       </div>
+14:       <div id="menu">
+15:         <% if current_user %>
+
+    app/views/layouts/application.html.erb:12
+
+Rendered rescues/_trace (35.6ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing UserSessionsController#new (for 127.0.0.1 at 2009-12-06 23:56:42) [GET]
+  Parameters: {"action"=>"new", "controller"=>"user_sessions"}
+Rendering template within layouts/application
+Rendering user_sessions/new
+Completed in 21ms (View: 6, DB: 0) | 200 OK [http://localhost/login]

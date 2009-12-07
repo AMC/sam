@@ -9,7 +9,7 @@
   <body>
     <div id="container">
       <div class="info">
-        <%= current_user.name %>
+        <%= current_user.name if current_user %>
       </div>
       <div id="menu">
         <% if current_user %>
