@@ -1,0 +1,29 @@
+<% form_for @user do |f| %>
+  <%= f.error_messages %>
+  <p>
+    <%= f.label :name %><br />
+    <%= f.text_field :name %>
+  </p>
+  <p>
+    <%= f.label :username %><br />
+    <%= f.text_field :username %>
+  </p>
+  <p>
+    <%= f.label :password %><br />
+    <%= f.password_field :password %>
+  </p>
+  <p>
+    <%= f.label :password_confirmation %><br />
+    <%= f.password_field :password_confirmation %>
+  </p>
+  <p>
+    <%= f.label :roles %><br />
+     <% for role in Role.all %>
+       <%= check_box_tag "user[role_ids][]", role.id, @user.roles.include?(role) %>
+       <%=h role.name %><br />
+     <% end %>
+  </p>
+  
+  <p><%= f.submit "Submit" %></p>
+  
+<% end %>

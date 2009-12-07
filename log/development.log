@@ -1,0 +1,2119 @@
+  [4;36;1mSQL (0.2ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mselect sqlite_version(*)[0m
+  [4;36;1mSQL (1.3ms)[0m   [0;1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [4;35;1mSQL (1.1ms)[0m   [0mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSELECT version FROM schema_migrations[0m
+Migrating to CreateUsers (20091206193228)
+  [4;36;1mSQL (0.4ms)[0m   [0;1mCREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "username" varchar(255), "crypted_passwod" varchar(255), "password_salt" varchar(255), "persistence_token" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (0.1ms)[0m   [0mINSERT INTO schema_migrations (version) VALUES ('20091206193228')[0m
+Migrating to CreateRoles (20091206193240)
+  [4;36;1mSQL (0.6ms)[0m   [0;1mCREATE TABLE "roles" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (0.2ms)[0m   [0mINSERT INTO schema_migrations (version) VALUES ('20091206193240')[0m
+Migrating to CreateAuthorizations (20091206193250)
+  [4;36;1mSQL (0.5ms)[0m   [0;1mCREATE TABLE "authorizations" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "user_id" integer, "role_id" integer, "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (0.1ms)[0m   [0mINSERT INTO schema_migrations (version) VALUES ('20091206193250')[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mPRAGMA index_list("authorizations")[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mPRAGMA index_list("roles")[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mPRAGMA index_list("users")[0m
+  [4;36;1mSQL (0.6ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT version FROM schema_migrations[0m
+Migrating to CreateUsers (20091206193228)
+Migrating to CreateRoles (20091206193240)
+Migrating to CreateAuthorizations (20091206193250)
+  [4;36;1mSQL (0.1ms)[0m   [0;1mselect sqlite_version(*)[0m
+  [4;35;1mSQL (0.3ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSELECT version FROM schema_migrations[0m
+  [4;35;1mSQL (0.3ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mPRAGMA index_list("authorizations")[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mPRAGMA index_list("roles")[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mPRAGMA index_list("users")[0m
+/!\ FAILSAFE /!\  Sun Dec 06 11:48:41 -0800 2009
+  Status: 500 Internal Server Error
+  /Users/andrew/simpleacademic/login/app/controllers/application_controller.rb:22: syntax error, unexpected tIDENTIFIER, expecting kEND
+    @current_user  current_user_session && current_user_session.record
+                                       ^
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.3.3/lib/active_support/dependencies.rb:380:in `load_without_new_constant_marking'
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.3.3/lib/active_support/dependencies.rb:380:in `load_file'
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.3.3/lib/active_support/dependencies.rb:521:in `new_constants_in'
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.3.3/lib/active_support/dependencies.rb:379:in `load_file'
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.3.3/lib/active_support/dependencies.rb:259:in `require_or_load'
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.3.3/lib/active_support/dependencies.rb:425:in `load_missing_constant'
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.3.3/lib/active_support/dependencies.rb:80:in `const_missing'
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.3.3/lib/active_support/dependencies.rb:92:in `const_missing'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.3.3/lib/action_controller/dispatcher.rb:90:in `dispatch'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.3.3/lib/action_controller/dispatcher.rb:111:in `_call'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.3.3/lib/action_controller/dispatcher.rb:82:in `initialize'
+    /Library/Ruby/Gems/1.8/gems/activerecord-2.3.3/lib/active_record/query_cache.rb:29:in `call'
+    /Library/Ruby/Gems/1.8/gems/activerecord-2.3.3/lib/active_record/query_cache.rb:29:in `call'
+    /Library/Ruby/Gems/1.8/gems/activerecord-2.3.3/lib/active_record/connection_adapters/abstract/query_cache.rb:34:in `cache'
+    /Library/Ruby/Gems/1.8/gems/activerecord-2.3.3/lib/active_record/query_cache.rb:9:in `cache'
+    /Library/Ruby/Gems/1.8/gems/activerecord-2.3.3/lib/active_record/query_cache.rb:28:in `call'
+    /Library/Ruby/Gems/1.8/gems/activerecord-2.3.3/lib/active_record/connection_adapters/abstract/connection_pool.rb:361:in `call'
+    /Users/andrew/.gem/ruby/1.8/gems/rack-1.0.1/lib/rack/head.rb:9:in `call'
+    /Users/andrew/.gem/ruby/1.8/gems/rack-1.0.1/lib/rack/methodoverride.rb:24:in `call'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.3.3/lib/action_controller/params_parser.rb:15:in `call'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.3.3/lib/action_controller/session/cookie_store.rb:93:in `call'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.3.3/lib/action_controller/reloader.rb:29:in `call'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.3.3/lib/action_controller/failsafe.rb:26:in `call'
+    /Users/andrew/.gem/ruby/1.8/gems/rack-1.0.1/lib/rack/lock.rb:11:in `call'
+    /Users/andrew/.gem/ruby/1.8/gems/rack-1.0.1/lib/rack/lock.rb:11:in `synchronize'
+    /Users/andrew/.gem/ruby/1.8/gems/rack-1.0.1/lib/rack/lock.rb:11:in `call'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.3.3/lib/action_controller/dispatcher.rb:106:in `call'
+    /Library/Ruby/Gems/1.8/gems/rails-2.3.3/lib/rails/rack/static.rb:31:in `call'
+    /Users/andrew/.gem/ruby/1.8/gems/rack-1.0.1/lib/rack/urlmap.rb:46:in `call'
+    /Users/andrew/.gem/ruby/1.8/gems/rack-1.0.1/lib/rack/urlmap.rb:40:in `each'
+    /Users/andrew/.gem/ruby/1.8/gems/rack-1.0.1/lib/rack/urlmap.rb:40:in `call'
+    /Library/Ruby/Gems/1.8/gems/rails-2.3.3/lib/rails/rack/log_tailer.rb:17:in `call'
+    /Users/andrew/.gem/ruby/1.8/gems/rack-1.0.1/lib/rack/content_length.rb:13:in `call'
+    /Users/andrew/.gem/ruby/1.8/gems/rack-1.0.1/lib/rack/chunked.rb:15:in `call'
+    /Users/andrew/.gem/ruby/1.8/gems/rack-1.0.1/lib/rack/handler/mongrel.rb:64:in `process'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel.rb:159:in `process_client'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel.rb:158:in `each'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel.rb:158:in `process_client'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel.rb:285:in `run'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel.rb:285:in `initialize'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel.rb:285:in `new'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel.rb:285:in `run'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel.rb:268:in `initialize'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel.rb:268:in `new'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel.rb:268:in `run'
+    /Users/andrew/.gem/ruby/1.8/gems/rack-1.0.1/lib/rack/handler/mongrel.rb:34:in `run'
+    /Library/Ruby/Gems/1.8/gems/rails-2.3.3/lib/commands/server.rb:111
+    /Library/Ruby/Site/1.8/rubygems/custom_require.rb:31:in `gem_original_require'
+    /Library/Ruby/Site/1.8/rubygems/custom_require.rb:31:in `require'
+    script/server:3
+/!\ FAILSAFE /!\  Sun Dec 06 11:48:49 -0800 2009
+  Status: 500 Internal Server Error
+  /Users/andrew/simpleacademic/login/app/controllers/application_controller.rb:22: syntax error, unexpected tIDENTIFIER, expecting kEND
+    @current_user  current_user_session && current_user_session.record
+                                       ^
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.3.3/lib/active_support/dependencies.rb:380:in `load_without_new_constant_marking'
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.3.3/lib/active_support/dependencies.rb:380:in `load_file'
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.3.3/lib/active_support/dependencies.rb:521:in `new_constants_in'
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.3.3/lib/active_support/dependencies.rb:379:in `load_file'
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.3.3/lib/active_support/dependencies.rb:259:in `require_or_load'
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.3.3/lib/active_support/dependencies.rb:425:in `load_missing_constant'
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.3.3/lib/active_support/dependencies.rb:80:in `const_missing'
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.3.3/lib/active_support/dependencies.rb:92:in `const_missing'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.3.3/lib/action_controller/dispatcher.rb:90:in `dispatch'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.3.3/lib/action_controller/dispatcher.rb:111:in `_call'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.3.3/lib/action_controller/dispatcher.rb:82:in `initialize'
+    /Library/Ruby/Gems/1.8/gems/activerecord-2.3.3/lib/active_record/query_cache.rb:29:in `call'
+    /Library/Ruby/Gems/1.8/gems/activerecord-2.3.3/lib/active_record/query_cache.rb:29:in `call'
+    /Library/Ruby/Gems/1.8/gems/activerecord-2.3.3/lib/active_record/connection_adapters/abstract/query_cache.rb:34:in `cache'
+    /Library/Ruby/Gems/1.8/gems/activerecord-2.3.3/lib/active_record/query_cache.rb:9:in `cache'
+    /Library/Ruby/Gems/1.8/gems/activerecord-2.3.3/lib/active_record/query_cache.rb:28:in `call'
+    /Library/Ruby/Gems/1.8/gems/activerecord-2.3.3/lib/active_record/connection_adapters/abstract/connection_pool.rb:361:in `call'
+    /Users/andrew/.gem/ruby/1.8/gems/rack-1.0.1/lib/rack/head.rb:9:in `call'
+    /Users/andrew/.gem/ruby/1.8/gems/rack-1.0.1/lib/rack/methodoverride.rb:24:in `call'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.3.3/lib/action_controller/params_parser.rb:15:in `call'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.3.3/lib/action_controller/session/cookie_store.rb:93:in `call'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.3.3/lib/action_controller/reloader.rb:29:in `call'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.3.3/lib/action_controller/failsafe.rb:26:in `call'
+    /Users/andrew/.gem/ruby/1.8/gems/rack-1.0.1/lib/rack/lock.rb:11:in `call'
+    /Users/andrew/.gem/ruby/1.8/gems/rack-1.0.1/lib/rack/lock.rb:11:in `synchronize'
+    /Users/andrew/.gem/ruby/1.8/gems/rack-1.0.1/lib/rack/lock.rb:11:in `call'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.3.3/lib/action_controller/dispatcher.rb:106:in `call'
+    /Library/Ruby/Gems/1.8/gems/rails-2.3.3/lib/rails/rack/static.rb:31:in `call'
+    /Users/andrew/.gem/ruby/1.8/gems/rack-1.0.1/lib/rack/urlmap.rb:46:in `call'
+    /Users/andrew/.gem/ruby/1.8/gems/rack-1.0.1/lib/rack/urlmap.rb:40:in `each'
+    /Users/andrew/.gem/ruby/1.8/gems/rack-1.0.1/lib/rack/urlmap.rb:40:in `call'
+    /Library/Ruby/Gems/1.8/gems/rails-2.3.3/lib/rails/rack/log_tailer.rb:17:in `call'
+    /Users/andrew/.gem/ruby/1.8/gems/rack-1.0.1/lib/rack/content_length.rb:13:in `call'
+    /Users/andrew/.gem/ruby/1.8/gems/rack-1.0.1/lib/rack/chunked.rb:15:in `call'
+    /Users/andrew/.gem/ruby/1.8/gems/rack-1.0.1/lib/rack/handler/mongrel.rb:64:in `process'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel.rb:159:in `process_client'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel.rb:158:in `each'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel.rb:158:in `process_client'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel.rb:285:in `run'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel.rb:285:in `initialize'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel.rb:285:in `new'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel.rb:285:in `run'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel.rb:268:in `initialize'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel.rb:268:in `new'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel.rb:268:in `run'
+    /Users/andrew/.gem/ruby/1.8/gems/rack-1.0.1/lib/rack/handler/mongrel.rb:34:in `run'
+    /Library/Ruby/Gems/1.8/gems/rails-2.3.3/lib/commands/server.rb:111
+    /Library/Ruby/Site/1.8/rubygems/custom_require.rb:31:in `gem_original_require'
+    /Library/Ruby/Site/1.8/rubygems/custom_require.rb:31:in `require'
+    script/server:3
+/!\ FAILSAFE /!\  Sun Dec 06 11:48:53 -0800 2009
+  Status: 500 Internal Server Error
+  /Users/andrew/simpleacademic/login/app/controllers/application_controller.rb:22: syntax error, unexpected tIDENTIFIER, expecting kEND
+    @current_user  current_user_session && current_user_session.record
+                                       ^
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.3.3/lib/active_support/dependencies.rb:380:in `load_without_new_constant_marking'
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.3.3/lib/active_support/dependencies.rb:380:in `load_file'
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.3.3/lib/active_support/dependencies.rb:521:in `new_constants_in'
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.3.3/lib/active_support/dependencies.rb:379:in `load_file'
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.3.3/lib/active_support/dependencies.rb:259:in `require_or_load'
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.3.3/lib/active_support/dependencies.rb:425:in `load_missing_constant'
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.3.3/lib/active_support/dependencies.rb:80:in `const_missing'
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.3.3/lib/active_support/dependencies.rb:92:in `const_missing'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.3.3/lib/action_controller/dispatcher.rb:90:in `dispatch'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.3.3/lib/action_controller/dispatcher.rb:111:in `_call'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.3.3/lib/action_controller/dispatcher.rb:82:in `initialize'
+    /Library/Ruby/Gems/1.8/gems/activerecord-2.3.3/lib/active_record/query_cache.rb:29:in `call'
+    /Library/Ruby/Gems/1.8/gems/activerecord-2.3.3/lib/active_record/query_cache.rb:29:in `call'
+    /Library/Ruby/Gems/1.8/gems/activerecord-2.3.3/lib/active_record/connection_adapters/abstract/query_cache.rb:34:in `cache'
+    /Library/Ruby/Gems/1.8/gems/activerecord-2.3.3/lib/active_record/query_cache.rb:9:in `cache'
+    /Library/Ruby/Gems/1.8/gems/activerecord-2.3.3/lib/active_record/query_cache.rb:28:in `call'
+    /Library/Ruby/Gems/1.8/gems/activerecord-2.3.3/lib/active_record/connection_adapters/abstract/connection_pool.rb:361:in `call'
+    /Users/andrew/.gem/ruby/1.8/gems/rack-1.0.1/lib/rack/head.rb:9:in `call'
+    /Users/andrew/.gem/ruby/1.8/gems/rack-1.0.1/lib/rack/methodoverride.rb:24:in `call'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.3.3/lib/action_controller/params_parser.rb:15:in `call'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.3.3/lib/action_controller/session/cookie_store.rb:93:in `call'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.3.3/lib/action_controller/reloader.rb:29:in `call'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.3.3/lib/action_controller/failsafe.rb:26:in `call'
+    /Users/andrew/.gem/ruby/1.8/gems/rack-1.0.1/lib/rack/lock.rb:11:in `call'
+    /Users/andrew/.gem/ruby/1.8/gems/rack-1.0.1/lib/rack/lock.rb:11:in `synchronize'
+    /Users/andrew/.gem/ruby/1.8/gems/rack-1.0.1/lib/rack/lock.rb:11:in `call'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.3.3/lib/action_controller/dispatcher.rb:106:in `call'
+    /Library/Ruby/Gems/1.8/gems/rails-2.3.3/lib/rails/rack/static.rb:31:in `call'
+    /Users/andrew/.gem/ruby/1.8/gems/rack-1.0.1/lib/rack/urlmap.rb:46:in `call'
+    /Users/andrew/.gem/ruby/1.8/gems/rack-1.0.1/lib/rack/urlmap.rb:40:in `each'
+    /Users/andrew/.gem/ruby/1.8/gems/rack-1.0.1/lib/rack/urlmap.rb:40:in `call'
+    /Library/Ruby/Gems/1.8/gems/rails-2.3.3/lib/rails/rack/log_tailer.rb:17:in `call'
+    /Users/andrew/.gem/ruby/1.8/gems/rack-1.0.1/lib/rack/content_length.rb:13:in `call'
+    /Users/andrew/.gem/ruby/1.8/gems/rack-1.0.1/lib/rack/chunked.rb:15:in `call'
+    /Users/andrew/.gem/ruby/1.8/gems/rack-1.0.1/lib/rack/handler/mongrel.rb:64:in `process'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel.rb:159:in `process_client'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel.rb:158:in `each'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel.rb:158:in `process_client'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel.rb:285:in `run'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel.rb:285:in `initialize'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel.rb:285:in `new'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel.rb:285:in `run'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel.rb:268:in `initialize'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel.rb:268:in `new'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel.rb:268:in `run'
+    /Users/andrew/.gem/ruby/1.8/gems/rack-1.0.1/lib/rack/handler/mongrel.rb:34:in `run'
+    /Library/Ruby/Gems/1.8/gems/rails-2.3.3/lib/commands/server.rb:111
+    /Library/Ruby/Site/1.8/rubygems/custom_require.rb:31:in `gem_original_require'
+    /Library/Ruby/Site/1.8/rubygems/custom_require.rb:31:in `require'
+    script/server:3
+/!\ FAILSAFE /!\  Sun Dec 06 11:49:22 -0800 2009
+  Status: 500 Internal Server Error
+  /Users/andrew/simpleacademic/login/app/controllers/application_controller.rb:22: syntax error, unexpected tIDENTIFIER, expecting kEND
+    @current_user  current_user_session && current_user_session.record
+                                       ^
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.3.3/lib/active_support/dependencies.rb:380:in `load_without_new_constant_marking'
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.3.3/lib/active_support/dependencies.rb:380:in `load_file'
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.3.3/lib/active_support/dependencies.rb:521:in `new_constants_in'
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.3.3/lib/active_support/dependencies.rb:379:in `load_file'
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.3.3/lib/active_support/dependencies.rb:259:in `require_or_load'
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.3.3/lib/active_support/dependencies.rb:425:in `load_missing_constant'
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.3.3/lib/active_support/dependencies.rb:80:in `const_missing'
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.3.3/lib/active_support/dependencies.rb:92:in `const_missing'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.3.3/lib/action_controller/dispatcher.rb:90:in `dispatch'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.3.3/lib/action_controller/dispatcher.rb:111:in `_call'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.3.3/lib/action_controller/dispatcher.rb:82:in `initialize'
+    /Library/Ruby/Gems/1.8/gems/activerecord-2.3.3/lib/active_record/query_cache.rb:29:in `call'
+    /Library/Ruby/Gems/1.8/gems/activerecord-2.3.3/lib/active_record/query_cache.rb:29:in `call'
+    /Library/Ruby/Gems/1.8/gems/activerecord-2.3.3/lib/active_record/connection_adapters/abstract/query_cache.rb:34:in `cache'
+    /Library/Ruby/Gems/1.8/gems/activerecord-2.3.3/lib/active_record/query_cache.rb:9:in `cache'
+    /Library/Ruby/Gems/1.8/gems/activerecord-2.3.3/lib/active_record/query_cache.rb:28:in `call'
+    /Library/Ruby/Gems/1.8/gems/activerecord-2.3.3/lib/active_record/connection_adapters/abstract/connection_pool.rb:361:in `call'
+    /Users/andrew/.gem/ruby/1.8/gems/rack-1.0.1/lib/rack/head.rb:9:in `call'
+    /Users/andrew/.gem/ruby/1.8/gems/rack-1.0.1/lib/rack/methodoverride.rb:24:in `call'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.3.3/lib/action_controller/params_parser.rb:15:in `call'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.3.3/lib/action_controller/session/cookie_store.rb:93:in `call'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.3.3/lib/action_controller/reloader.rb:29:in `call'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.3.3/lib/action_controller/failsafe.rb:26:in `call'
+    /Users/andrew/.gem/ruby/1.8/gems/rack-1.0.1/lib/rack/lock.rb:11:in `call'
+    /Users/andrew/.gem/ruby/1.8/gems/rack-1.0.1/lib/rack/lock.rb:11:in `synchronize'
+    /Users/andrew/.gem/ruby/1.8/gems/rack-1.0.1/lib/rack/lock.rb:11:in `call'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.3.3/lib/action_controller/dispatcher.rb:106:in `call'
+    /Library/Ruby/Gems/1.8/gems/rails-2.3.3/lib/rails/rack/static.rb:31:in `call'
+    /Users/andrew/.gem/ruby/1.8/gems/rack-1.0.1/lib/rack/urlmap.rb:46:in `call'
+    /Users/andrew/.gem/ruby/1.8/gems/rack-1.0.1/lib/rack/urlmap.rb:40:in `each'
+    /Users/andrew/.gem/ruby/1.8/gems/rack-1.0.1/lib/rack/urlmap.rb:40:in `call'
+    /Library/Ruby/Gems/1.8/gems/rails-2.3.3/lib/rails/rack/log_tailer.rb:17:in `call'
+    /Users/andrew/.gem/ruby/1.8/gems/rack-1.0.1/lib/rack/content_length.rb:13:in `call'
+    /Users/andrew/.gem/ruby/1.8/gems/rack-1.0.1/lib/rack/chunked.rb:15:in `call'
+    /Users/andrew/.gem/ruby/1.8/gems/rack-1.0.1/lib/rack/handler/mongrel.rb:64:in `process'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel.rb:159:in `process_client'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel.rb:158:in `each'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel.rb:158:in `process_client'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel.rb:285:in `run'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel.rb:285:in `initialize'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel.rb:285:in `new'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel.rb:285:in `run'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel.rb:268:in `initialize'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel.rb:268:in `new'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel.rb:268:in `run'
+    /Users/andrew/.gem/ruby/1.8/gems/rack-1.0.1/lib/rack/handler/mongrel.rb:34:in `run'
+    /Library/Ruby/Gems/1.8/gems/rails-2.3.3/lib/commands/server.rb:111
+    /Library/Ruby/Site/1.8/rubygems/custom_require.rb:31:in `gem_original_require'
+    /Library/Ruby/Site/1.8/rubygems/custom_require.rb:31:in `require'
+    script/server:3
+
+
+Processing UsersController#index (for 127.0.0.1 at 2009-12-06 11:50:41) [GET]
+  [4;36;1mUser Load (0.2ms)[0m   [0;1mSELECT * FROM "users" [0m
+Rendering template within layouts/application
+Rendering users/index
+Completed in 34ms (View: 10, DB: 0) | 200 OK [http://localhost/users]
+
+
+Processing RolesController#index (for 127.0.0.1 at 2009-12-06 11:50:47) [GET]
+  [4;35;1mRole Load (0.3ms)[0m   [0mSELECT * FROM "roles" [0m
+Rendering template within layouts/application
+Rendering roles/index
+Completed in 18ms (View: 13, DB: 0) | 200 OK [http://localhost/roles]
+
+
+Processing RolesController#new (for 127.0.0.1 at 2009-12-06 11:50:49) [GET]
+Rendering template within layouts/application
+Rendering roles/new
+Rendered roles/_form (3.0ms)
+Completed in 24ms (View: 19, DB: 0) | 200 OK [http://localhost/roles/new]
+
+
+Processing RolesController#create (for 127.0.0.1 at 2009-12-06 11:50:51) [POST]
+  Parameters: {"commit"=>"Submit", "authenticity_token"=>"N1Vzu7VR5+qJXBQVNKzXE1psVHo8CgmPyHA+crLh0Lw=", "role"=>{"name"=>"Admin"}}
+  [4;36;1mRole Create (0.6ms)[0m   [0;1mINSERT INTO "roles" ("name", "updated_at", "created_at") VALUES('Admin', '2009-12-06 19:50:51', '2009-12-06 19:50:51')[0m
+Redirected to http://localhost:3000/roles/1
+Completed in 30ms (DB: 1) | 302 Found [http://localhost/roles]
+
+
+Processing RolesController#show (for 127.0.0.1 at 2009-12-06 11:50:51) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mRole Load (0.2ms)[0m   [0mSELECT * FROM "roles" WHERE ("roles"."id" = 1) [0m
+Rendering template within layouts/application
+Rendering roles/show
+Completed in 20ms (View: 14, DB: 0) | 200 OK [http://localhost/roles/1]
+
+
+Processing RolesController#index (for 127.0.0.1 at 2009-12-06 11:50:53) [GET]
+  [4;36;1mRole Load (0.5ms)[0m   [0;1mSELECT * FROM "roles" [0m
+Rendering template within layouts/application
+Rendering roles/index
+Completed in 17ms (View: 12, DB: 0) | 200 OK [http://localhost/roles]
+
+
+Processing RolesController#new (for 127.0.0.1 at 2009-12-06 11:50:55) [GET]
+Rendering template within layouts/application
+Rendering roles/new
+Rendered roles/_form (1.6ms)
+Completed in 16ms (View: 12, DB: 0) | 200 OK [http://localhost/roles/new]
+
+
+Processing RolesController#create (for 127.0.0.1 at 2009-12-06 11:50:57) [POST]
+  Parameters: {"commit"=>"Submit", "authenticity_token"=>"N1Vzu7VR5+qJXBQVNKzXE1psVHo8CgmPyHA+crLh0Lw=", "role"=>{"name"=>"Teacher"}}
+  [4;35;1mRole Create (0.3ms)[0m   [0mINSERT INTO "roles" ("name", "updated_at", "created_at") VALUES('Teacher', '2009-12-06 19:50:57', '2009-12-06 19:50:57')[0m
+Redirected to http://localhost:3000/roles/2
+Completed in 9ms (DB: 0) | 302 Found [http://localhost/roles]
+
+
+Processing RolesController#show (for 127.0.0.1 at 2009-12-06 11:50:57) [GET]
+  Parameters: {"id"=>"2"}
+  [4;36;1mRole Load (0.2ms)[0m   [0;1mSELECT * FROM "roles" WHERE ("roles"."id" = 2) [0m
+Rendering template within layouts/application
+Rendering roles/show
+Completed in 16ms (View: 11, DB: 0) | 200 OK [http://localhost/roles/2]
+
+
+Processing RolesController#index (for 127.0.0.1 at 2009-12-06 11:50:58) [GET]
+  [4;35;1mRole Load (0.5ms)[0m   [0mSELECT * FROM "roles" [0m
+Rendering template within layouts/application
+Rendering roles/index
+Completed in 17ms (View: 12, DB: 1) | 200 OK [http://localhost/roles]
+
+
+Processing RolesController#new (for 127.0.0.1 at 2009-12-06 11:51:00) [GET]
+Rendering template within layouts/application
+Rendering roles/new
+Rendered roles/_form (1.7ms)
+Completed in 75ms (View: 69, DB: 0) | 200 OK [http://localhost/roles/new]
+
+
+Processing RolesController#create (for 127.0.0.1 at 2009-12-06 11:51:03) [POST]
+  Parameters: {"commit"=>"Submit", "authenticity_token"=>"N1Vzu7VR5+qJXBQVNKzXE1psVHo8CgmPyHA+crLh0Lw=", "role"=>{"name"=>"Student"}}
+  [4;36;1mRole Create (0.3ms)[0m   [0;1mINSERT INTO "roles" ("name", "updated_at", "created_at") VALUES('Student', '2009-12-06 19:51:03', '2009-12-06 19:51:03')[0m
+Redirected to http://localhost:3000/roles/3
+Completed in 9ms (DB: 0) | 302 Found [http://localhost/roles]
+
+
+Processing RolesController#show (for 127.0.0.1 at 2009-12-06 11:51:03) [GET]
+  Parameters: {"id"=>"3"}
+  [4;35;1mRole Load (0.2ms)[0m   [0mSELECT * FROM "roles" WHERE ("roles"."id" = 3) [0m
+Rendering template within layouts/application
+Rendering roles/show
+Completed in 17ms (View: 12, DB: 0) | 200 OK [http://localhost/roles/3]
+
+
+Processing RolesController#index (for 127.0.0.1 at 2009-12-06 11:51:04) [GET]
+  [4;36;1mRole Load (0.7ms)[0m   [0;1mSELECT * FROM "roles" [0m
+Rendering template within layouts/application
+Rendering roles/index
+Completed in 18ms (View: 13, DB: 1) | 200 OK [http://localhost/roles]
+
+
+Processing UsersController#index (for 127.0.0.1 at 2009-12-06 11:51:11) [GET]
+  [4;35;1mUser Load (0.2ms)[0m   [0mSELECT * FROM "users" [0m
+Rendering template within layouts/application
+Rendering users/index
+Completed in 12ms (View: 4, DB: 0) | 200 OK [http://localhost/users]
+
+
+Processing UsersController#new (for 127.0.0.1 at 2009-12-06 11:51:13) [GET]
+Rendering template within layouts/application
+Rendering users/new
+
+ActionView::TemplateError (undefined method `password' for #<User:0x237556c>) on line #13 of app/views/users/_form.html.erb:
+10:   </p>
+11:   <p>
+12:     <%= f.label :password %><br />
+13:     <%= f.text_field :password %>
+14:   </p>
+15:   <p><%= f.submit "Submit" %></p>
+16: <% end %>
+
+    app/views/users/_form.html.erb:13
+    app/views/users/_form.html.erb:1
+    app/views/users/new.html.erb:3
+
+Rendered rescues/_trace (111.3ms)
+Rendered rescues/_request_and_response (1.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing UsersController#new (for 127.0.0.1 at 2009-12-06 11:52:07) [GET]
+Rendering template within layouts/application
+Rendering users/new
+
+ActionView::TemplateError (undefined method `password' for #<User:0x246e360>) on line #13 of app/views/users/_form.html.erb:
+10:   </p>
+11:   <p>
+12:     <%= f.label :password %><br />
+13:     <%= f.password_field :password %>
+14:   </p>
+15:   <p>
+16:     <%= f.label :password_confirmation %><br />
+
+    app/views/users/_form.html.erb:13
+    app/views/users/_form.html.erb:1
+    app/views/users/new.html.erb:3
+
+Rendered rescues/_trace (47.7ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing UsersController#new (for 127.0.0.1 at 2009-12-06 11:52:41) [GET]
+Rendering template within layouts/application
+Rendering users/new
+
+ActionView::TemplateError (undefined method `password' for #<User:0x228e608>) on line #13 of app/views/users/_form.html.erb:
+10:   </p>
+11:   <p>
+12:     <%= f.label :password %><br />
+13:     <%= f.password_field :password %>
+14:   </p>
+15:   <p>
+16:     <%= f.label :password_confirmation %><br />
+
+    app/views/users/_form.html.erb:13
+    app/views/users/_form.html.erb:1
+    app/views/users/new.html.erb:3
+
+Rendered rescues/_trace (47.2ms)
+Rendered rescues/_request_and_response (0.2ms)
+Rendering rescues/layout (internal_server_error)
+  [4;36;1mSQL (0.3ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mselect sqlite_version(*)[0m
+  [4;36;1mSQL (2.1ms)[0m   [0;1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [4;35;1mSQL (1.0ms)[0m   [0mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSELECT version FROM schema_migrations[0m
+Migrating to CreateUsers (20091206193228)
+  [4;36;1mSQL (0.4ms)[0m   [0;1mCREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "username" varchar(255), "crypted_password" varchar(255), "password_salt" varchar(255), "persistence_token" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (0.1ms)[0m   [0mINSERT INTO schema_migrations (version) VALUES ('20091206193228')[0m
+Migrating to CreateRoles (20091206193240)
+  [4;36;1mSQL (0.4ms)[0m   [0;1mCREATE TABLE "roles" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (0.1ms)[0m   [0mINSERT INTO schema_migrations (version) VALUES ('20091206193240')[0m
+Migrating to CreateAuthorizations (20091206193250)
+  [4;36;1mSQL (0.3ms)[0m   [0;1mCREATE TABLE "authorizations" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "user_id" integer, "role_id" integer, "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (0.1ms)[0m   [0mINSERT INTO schema_migrations (version) VALUES ('20091206193250')[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mPRAGMA index_list("authorizations")[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mPRAGMA index_list("roles")[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mPRAGMA index_list("users")[0m
+
+
+Processing UsersController#new (for 127.0.0.1 at 2009-12-06 11:54:05) [GET]
+Rendering template within layouts/application
+Rendering users/new
+Rendered users/_form (4.7ms)
+Completed in 33ms (View: 16, DB: 0) | 200 OK [http://localhost/users/new]
+
+
+Processing RolesController#index (for 127.0.0.1 at 2009-12-06 11:54:18) [GET]
+  [4;36;1mRole Load (0.3ms)[0m   [0;1mSELECT * FROM "roles" [0m
+Rendering template within layouts/application
+Rendering roles/index
+Completed in 19ms (View: 14, DB: 0) | 200 OK [http://localhost/roles]
+
+
+Processing RolesController#new (for 127.0.0.1 at 2009-12-06 11:54:20) [GET]
+Rendering template within layouts/application
+Rendering roles/new
+Rendered roles/_form (2.3ms)
+Completed in 24ms (View: 19, DB: 0) | 200 OK [http://localhost/roles/new]
+
+
+Processing RolesController#create (for 127.0.0.1 at 2009-12-06 11:54:22) [POST]
+  Parameters: {"commit"=>"Submit", "authenticity_token"=>"N1Vzu7VR5+qJXBQVNKzXE1psVHo8CgmPyHA+crLh0Lw=", "role"=>{"name"=>"Admin"}}
+  [4;35;1mRole Create (0.5ms)[0m   [0mINSERT INTO "roles" ("name", "updated_at", "created_at") VALUES('Admin', '2009-12-06 19:54:22', '2009-12-06 19:54:22')[0m
+Redirected to http://localhost:3000/roles/1
+Completed in 70ms (DB: 0) | 302 Found [http://localhost/roles]
+
+
+Processing RolesController#show (for 127.0.0.1 at 2009-12-06 11:54:22) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mRole Load (0.2ms)[0m   [0;1mSELECT * FROM "roles" WHERE ("roles"."id" = 1) [0m
+Rendering template within layouts/application
+Rendering roles/show
+Completed in 22ms (View: 16, DB: 0) | 200 OK [http://localhost/roles/1]
+
+
+Processing RolesController#index (for 127.0.0.1 at 2009-12-06 11:54:23) [GET]
+  [4;35;1mRole Load (0.5ms)[0m   [0mSELECT * FROM "roles" [0m
+Rendering template within layouts/application
+Rendering roles/index
+Completed in 17ms (View: 13, DB: 0) | 200 OK [http://localhost/roles]
+
+
+Processing RolesController#new (for 127.0.0.1 at 2009-12-06 11:54:24) [GET]
+Rendering template within layouts/application
+Rendering roles/new
+Rendered roles/_form (1.6ms)
+Completed in 17ms (View: 12, DB: 0) | 200 OK [http://localhost/roles/new]
+
+
+Processing RolesController#create (for 127.0.0.1 at 2009-12-06 11:54:27) [POST]
+  Parameters: {"commit"=>"Submit", "authenticity_token"=>"N1Vzu7VR5+qJXBQVNKzXE1psVHo8CgmPyHA+crLh0Lw=", "role"=>{"name"=>"Teacher"}}
+  [4;36;1mRole Create (0.3ms)[0m   [0;1mINSERT INTO "roles" ("name", "updated_at", "created_at") VALUES('Teacher', '2009-12-06 19:54:27', '2009-12-06 19:54:27')[0m
+Redirected to http://localhost:3000/roles/2
+Completed in 26ms (DB: 0) | 302 Found [http://localhost/roles]
+
+
+Processing RolesController#show (for 127.0.0.1 at 2009-12-06 11:54:27) [GET]
+  Parameters: {"id"=>"2"}
+  [4;35;1mRole Load (0.2ms)[0m   [0mSELECT * FROM "roles" WHERE ("roles"."id" = 2) [0m
+Rendering template within layouts/application
+Rendering roles/show
+Completed in 18ms (View: 12, DB: 0) | 200 OK [http://localhost/roles/2]
+
+
+Processing RolesController#index (for 127.0.0.1 at 2009-12-06 11:54:28) [GET]
+  [4;36;1mRole Load (0.5ms)[0m   [0;1mSELECT * FROM "roles" [0m
+Rendering template within layouts/application
+Rendering roles/index
+Completed in 18ms (View: 13, DB: 1) | 200 OK [http://localhost/roles]
+
+
+Processing RolesController#new (for 127.0.0.1 at 2009-12-06 11:54:29) [GET]
+Rendering template within layouts/application
+Rendering roles/new
+Rendered roles/_form (1.7ms)
+Completed in 18ms (View: 13, DB: 0) | 200 OK [http://localhost/roles/new]
+
+
+Processing RolesController#create (for 127.0.0.1 at 2009-12-06 11:54:33) [POST]
+  Parameters: {"commit"=>"Submit", "authenticity_token"=>"N1Vzu7VR5+qJXBQVNKzXE1psVHo8CgmPyHA+crLh0Lw=", "role"=>{"name"=>"Teacher"}}
+  [4;35;1mRole Create (0.4ms)[0m   [0mINSERT INTO "roles" ("name", "updated_at", "created_at") VALUES('Teacher', '2009-12-06 19:54:33', '2009-12-06 19:54:33')[0m
+Redirected to http://localhost:3000/roles/3
+Completed in 11ms (DB: 0) | 302 Found [http://localhost/roles]
+
+
+Processing RolesController#show (for 127.0.0.1 at 2009-12-06 11:54:33) [GET]
+  Parameters: {"id"=>"3"}
+  [4;36;1mRole Load (0.2ms)[0m   [0;1mSELECT * FROM "roles" WHERE ("roles"."id" = 3) [0m
+Rendering template within layouts/application
+Rendering roles/show
+Completed in 17ms (View: 12, DB: 0) | 200 OK [http://localhost/roles/3]
+
+
+Processing RolesController#index (for 127.0.0.1 at 2009-12-06 11:54:34) [GET]
+  [4;35;1mRole Load (0.6ms)[0m   [0mSELECT * FROM "roles" [0m
+Rendering template within layouts/application
+Rendering roles/index
+Completed in 18ms (View: 14, DB: 1) | 200 OK [http://localhost/roles]
+
+
+Processing UsersController#index (for 127.0.0.1 at 2009-12-06 11:54:38) [GET]
+  [4;36;1mUser Load (0.2ms)[0m   [0;1mSELECT * FROM "users" [0m
+Rendering template within layouts/application
+Rendering users/index
+Completed in 16ms (View: 7, DB: 0) | 200 OK [http://localhost/users]
+
+
+Processing UsersController#new (for 127.0.0.1 at 2009-12-06 11:54:40) [GET]
+Rendering template within layouts/application
+Rendering users/new
+Rendered users/_form (2.7ms)
+Completed in 15ms (View: 6, DB: 0) | 200 OK [http://localhost/users/new]
+
+
+Processing UsersController#create (for 127.0.0.1 at 2009-12-06 11:54:50) [POST]
+  Parameters: {"user"=>{"name"=>"Andrew Canfield", "password_confirmation"=>"123456", "username"=>"acanfield", "password"=>"123456"}, "commit"=>"Submit", "authenticity_token"=>"N1Vzu7VR5+qJXBQVNKzXE1psVHo8CgmPyHA+crLh0Lw="}
+  [4;35;1mUser Load (0.2ms)[0m   [0mSELECT "users".id FROM "users" WHERE (LOWER("users"."username") = 'acanfield') LIMIT 1[0m
+  [4;36;1mUser Load (0.1ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE ("users"."persistence_token" = '5c01d6bc23d53419ca00057fedadd26bfa15ed9ac4343a3df5e6116ab72559e7c96e9f3decccf51350b0381a2b2dd3e313425db735b2b10ddad86e14ef67cd45') LIMIT 1[0m
+  [4;35;1mUser Create (0.4ms)[0m   [0mINSERT INTO "users" ("name", "updated_at", "crypted_password", "username", "password_salt", "persistence_token", "created_at") VALUES('Andrew Canfield', '2009-12-06 19:54:50', '850282769ba32fbdd06230e71c3c2ee2c757e76e56ff12ba1ce471c6684abd42180abb32fb751e10842bf46acb00f7dd7f9bd0177ee92c5d7b6e70be4cfcea68', 'acanfield', 'mdwVA0IBXWuuY15xBv2p', '5c01d6bc23d53419ca00057fedadd26bfa15ed9ac4343a3df5e6116ab72559e7c96e9f3decccf51350b0381a2b2dd3e313425db735b2b10ddad86e14ef67cd45', '2009-12-06 19:54:50')[0m
+Redirected to http://localhost:3000/users/1
+Completed in 199ms (DB: 1) | 302 Found [http://localhost/users]
+
+
+Processing UsersController#show (for 127.0.0.1 at 2009-12-06 11:54:50) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+Rendering template within layouts/application
+Rendering users/show
+  [4;35;1mUser Load (0.5ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."persistence_token" = '5c01d6bc23d53419ca00057fedadd26bfa15ed9ac4343a3df5e6116ab72559e7c96e9f3decccf51350b0381a2b2dd3e313425db735b2b10ddad86e14ef67cd45') LIMIT 1[0m
+
+ActionView::TemplateError (undefined local variable or method `logout_path' for #<ActionView::Base:0x23df0d4>) on line #14 of app/views/layouts/application.html.erb:
+11:       <div id="menu">
+12:         <% if current_user %>
+13:           <%= link_to "profile", edit_user_path(:current) %>
+14:           <%= link_to "logout", logout_path %>
+15:         <% else %>
+16:           <% link_to "login", login_path %>
+17:         <% end %>
+
+    app/views/layouts/application.html.erb:14
+
+Rendered rescues/_trace (86.6ms)
+Rendered rescues/_request_and_response (1.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing UsersController#show (for 127.0.0.1 at 2009-12-06 11:55:06) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+Rendering template within layouts/application
+Rendering users/show
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."persistence_token" = '5c01d6bc23d53419ca00057fedadd26bfa15ed9ac4343a3df5e6116ab72559e7c96e9f3decccf51350b0381a2b2dd3e313425db735b2b10ddad86e14ef67cd45') LIMIT 1[0m
+Completed in 17ms (View: 7, DB: 1) | 200 OK [http://localhost/users/1]
+
+
+Processing UsersController#edit (for 127.0.0.1 at 2009-12-06 11:55:10) [GET]
+  Parameters: {"id"=>"current"}
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."persistence_token" = '5c01d6bc23d53419ca00057fedadd26bfa15ed9ac4343a3df5e6116ab72559e7c96e9f3decccf51350b0381a2b2dd3e313425db735b2b10ddad86e14ef67cd45') LIMIT 1[0m
+Rendering template within layouts/application
+Rendering users/edit
+Rendered users/_form (1.6ms)
+Completed in 20ms (View: 6, DB: 0) | 200 OK [http://localhost/users/current/edit]
+
+
+Processing UserSessionsController#destroy (for 127.0.0.1 at 2009-12-06 11:55:13) [GET]
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."persistence_token" = '5c01d6bc23d53419ca00057fedadd26bfa15ed9ac4343a3df5e6116ab72559e7c96e9f3decccf51350b0381a2b2dd3e313425db735b2b10ddad86e14ef67cd45') LIMIT 1[0m
+
+NameError (undefined local variable or method `root_url' for #<UserSessionsController:0x222b9a4>):
+  app/controllers/user_sessions_controller.rb:20:in `destroy'
+
+Rendered rescues/_trace (92.7ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing UserSessionsController#destroy (for 127.0.0.1 at 2009-12-06 11:55:33) [GET]
+
+NoMethodError (You have a nil object when you didn't expect it!
+You might have expected an instance of ActiveRecord::Base.
+The error occurred while evaluating nil.destroy):
+  app/controllers/user_sessions_controller.rb:18:in `destroy'
+
+Rendered rescues/_trace (28.1ms)
+Rendered rescues/_request_and_response (0.2ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing UserSessionsController#destroy (for 127.0.0.1 at 2009-12-06 11:55:46) [GET]
+
+NoMethodError (You have a nil object when you didn't expect it!
+You might have expected an instance of ActiveRecord::Base.
+The error occurred while evaluating nil.destroy):
+  app/controllers/user_sessions_controller.rb:18:in `destroy'
+
+Rendered rescues/_trace (29.4ms)
+Rendered rescues/_request_and_response (0.2ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2009-12-06 11:56:20) [GET]
+
+NameError (uninitialized constant UserController):
+  
+
+Rendered rescues/_trace (24.0ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing UsersController#index (for 127.0.0.1 at 2009-12-06 11:56:30) [GET]
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM "users" [0m
+Rendering template within layouts/application
+Rendering users/index
+Completed in 16ms (View: 6, DB: 0) | 200 OK [http://localhost/]
+
+
+Processing UsersController#index (for 127.0.0.1 at 2009-12-06 11:56:52) [GET]
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM "users" [0m
+Rendering template within layouts/application
+Rendering users/index
+Completed in 18ms (View: 9, DB: 0) | 200 OK [http://localhost/]
+
+
+Processing UsersController#index (for 127.0.0.1 at 2009-12-06 11:57:01) [GET]
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM "users" [0m
+Rendering template within layouts/application
+Rendering users/index
+Completed in 18ms (View: 9, DB: 0) | 200 OK [http://localhost/]
+
+
+Processing UsersController#index (for 127.0.0.1 at 2009-12-06 11:57:06) [GET]
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT * FROM "users" [0m
+Rendering template within layouts/application
+Rendering users/index
+Completed in 18ms (View: 9, DB: 0) | 200 OK [http://localhost/]
+
+
+Processing UserSessionsController#new (for 127.0.0.1 at 2009-12-06 11:57:08) [GET]
+Rendering template within layouts/application
+Rendering user_sessions/new
+Completed in 16ms (View: 6, DB: 0) | 200 OK [http://localhost/login]
+
+
+Processing UserSessionsController#create (for 127.0.0.1 at 2009-12-06 11:57:12) [POST]
+  Parameters: {"commit"=>"Submit", "user_session"=>{"username"=>"acanfield", "password"=>"123456"}, "authenticity_token"=>"N1Vzu7VR5+qJXBQVNKzXE1psVHo8CgmPyHA+crLh0Lw="}
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM "users" WHERE (LOWER("users".username) = 'acanfield') LIMIT 1[0m
+Redirected to http://localhost:3000/
+Completed in 14ms (DB: 0) | 302 Found [http://localhost/user_sessions]
+
+
+Processing UsersController#index (for 127.0.0.1 at 2009-12-06 11:57:12) [GET]
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT * FROM "users" [0m
+Rendering template within layouts/application
+Rendering users/index
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+Completed in 17ms (View: 7, DB: 1) | 200 OK [http://localhost/]
+
+
+Processing UsersController#edit (for 127.0.0.1 at 2009-12-06 11:57:15) [GET]
+  Parameters: {"id"=>"current"}
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+Rendering template within layouts/application
+Rendering users/edit
+Rendered users/_form (1.6ms)
+Completed in 17ms (View: 3, DB: 0) | 200 OK [http://localhost/users/current/edit]
+
+
+Processing UsersController#edit (for 127.0.0.1 at 2009-12-06 11:59:45) [GET]
+  Parameters: {"id"=>"current"}
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+Rendering template within layouts/application
+Rendering users/edit
+ERROR: compiling _run_erb_app47views47users47_form46html46erb_locals_form_object RAISED compile error
+/Users/andrew/simpleacademic/login/app/views/users/_form.html.erb:29: syntax error, unexpected kENSURE, expecting kEND
+/Users/andrew/simpleacademic/login/app/views/users/_form.html.erb:31: syntax error, unexpected $end, expecting kEND
+Function body:           def _run_erb_app47views47users47_form46html46erb_locals_form_object(local_assigns)
+            old_output_buffer = output_buffer;form = local_assigns[:form];object = local_assigns[:object];;@output_buffer = '';  __in_erb_template=true ;  form_for @user do |f| ; @output_buffer.concat "\n"
+@output_buffer.concat "  "; @output_buffer.concat(( f.error_messages ).to_s); @output_buffer.concat "\n"
+@output_buffer.concat "  <p>\n"
+@output_buffer.concat "    "; @output_buffer.concat(( f.label :name ).to_s); @output_buffer.concat "<br />\n"
+@output_buffer.concat "    "; @output_buffer.concat(( f.text_field :name ).to_s); @output_buffer.concat "\n"
+@output_buffer.concat "  </p>\n"
+@output_buffer.concat "  <p>\n"
+@output_buffer.concat "    "; @output_buffer.concat(( f.label :username ).to_s); @output_buffer.concat "<br />\n"
+@output_buffer.concat "    "; @output_buffer.concat(( f.text_field :username ).to_s); @output_buffer.concat "\n"
+@output_buffer.concat "  </p>\n"
+@output_buffer.concat "  <p>\n"
+@output_buffer.concat "    "; @output_buffer.concat(( f.label :password ).to_s); @output_buffer.concat "<br />\n"
+@output_buffer.concat "    "; @output_buffer.concat(( f.password_field :password ).to_s); @output_buffer.concat "\n"
+@output_buffer.concat "  </p>\n"
+@output_buffer.concat "  <p>\n"
+@output_buffer.concat "    "; @output_buffer.concat(( f.label :password_confirmation ).to_s); @output_buffer.concat "<br />\n"
+@output_buffer.concat "    "; @output_buffer.concat(( f.password_field :password_confirmation ).to_s); @output_buffer.concat "\n"
+@output_buffer.concat "  </p>\n"
+@output_buffer.concat "  <p>\n"
+@output_buffer.concat "    ";  for role in Role.find ; @output_buffer.concat "\n"
+@output_buffer.concat "    "; @output_buffer.concat(( check_box_tag "user[role_ids][]", role.id).to_s); @output_buffer.concat "\n"
+@output_buffer.concat "    "; @output_buffer.concat(( role.name ).to_s); @output_buffer.concat " <br />\n"
+@output_buffer.concat "  </p>\n"
+@output_buffer.concat "  \n"
+@output_buffer.concat "  <p>"; @output_buffer.concat(( f.submit "Submit" ).to_s); @output_buffer.concat "</p>\n"
+@output_buffer.concat "  \n"
+ end ; @output_buffer.concat "\n"
+@output_buffer
+          ensure
+            self.output_buffer = old_output_buffer
+          end
+Backtrace: /Users/andrew/simpleacademic/login/app/views/users/_form.html.erb:31:in `compile!'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.3/lib/action_view/renderable.rb:61:in `compile'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.3/lib/action_view/renderable.rb:28:in `render'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.3/lib/action_view/renderable_partial.rb:20:in `render'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.3/lib/action_controller/benchmarking.rb:26:in `benchmark'
+/Library/Ruby/Gems/1.8/gems/activesupport-2.3.3/lib/active_support/core_ext/benchmark.rb:17:in `ms'
+/Library/Ruby/Gems/1.8/gems/activesupport-2.3.3/lib/active_support/core_ext/benchmark.rb:10:in `realtime'
+/Library/Ruby/Gems/1.8/gems/activesupport-2.3.3/lib/active_support/core_ext/benchmark.rb:17:in `ms'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.3/lib/action_controller/benchmarking.rb:26:in `benchmark'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.3/lib/action_view/renderable_partial.rb:19:in `render'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.3/lib/action_view/template.rb:199:in `render_template'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.3/lib/action_view/renderable_partial.rb:44:in `render_partial'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.3/lib/action_view/partials.rb:184:in `render_partial'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.3/lib/action_view/base.rb:262:in `render'
+/Users/andrew/simpleacademic/login/app/views/users/edit.html.erb:3:in `_run_erb_app47views47users47edit46html46erb'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.3/lib/action_view/renderable.rb:34:in `send'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.3/lib/action_view/renderable.rb:34:in `render'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.3/lib/action_view/base.rb:301:in `with_template'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.3/lib/action_view/renderable.rb:30:in `render'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.3/lib/action_view/template.rb:199:in `render_template'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.3/lib/action_view/base.rb:260:in `render'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.3/lib/action_view/base.rb:343:in `_render_with_layout'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.3/lib/action_view/base.rb:257:in `render'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.3/lib/action_controller/base.rb:1246:in `render_for_file'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.3/lib/action_controller/base.rb:941:in `render_without_benchmark'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.3/lib/action_controller/benchmarking.rb:51:in `render'
+/Library/Ruby/Gems/1.8/gems/activesupport-2.3.3/lib/active_support/core_ext/benchmark.rb:17:in `ms'
+/Library/Ruby/Gems/1.8/gems/activesupport-2.3.3/lib/active_support/core_ext/benchmark.rb:10:in `realtime'
+/Library/Ruby/Gems/1.8/gems/activesupport-2.3.3/lib/active_support/core_ext/benchmark.rb:17:in `ms'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.3/lib/action_controller/benchmarking.rb:51:in `render'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.3/lib/action_controller/base.rb:1322:in `default_render'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.3/lib/action_controller/base.rb:1328:in `perform_action_without_filters'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.3/lib/action_controller/filters.rb:617:in `call_filters'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.3/lib/action_controller/filters.rb:610:in `perform_action_without_benchmark'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.3/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+/Library/Ruby/Gems/1.8/gems/activesupport-2.3.3/lib/active_support/core_ext/benchmark.rb:17:in `ms'
+/Library/Ruby/Gems/1.8/gems/activesupport-2.3.3/lib/active_support/core_ext/benchmark.rb:10:in `realtime'
+/Library/Ruby/Gems/1.8/gems/activesupport-2.3.3/lib/active_support/core_ext/benchmark.rb:17:in `ms'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.3/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.3/lib/action_controller/rescue.rb:160:in `perform_action_without_flash'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.3/lib/action_controller/flash.rb:146:in `perform_action'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.3/lib/action_controller/base.rb:527:in `send'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.3/lib/action_controller/base.rb:527:in `process_without_filters'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.3/lib/action_controller/filters.rb:606:in `process'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.3/lib/action_controller/base.rb:391:in `process'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.3/lib/action_controller/base.rb:386:in `call'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.3/lib/action_controller/routing/route_set.rb:434:in `call'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.3/lib/action_controller/dispatcher.rb:88:in `dispatch'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.3/lib/action_controller/dispatcher.rb:111:in `_call'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.3/lib/action_controller/dispatcher.rb:82:in `initialize'
+/Library/Ruby/Gems/1.8/gems/activerecord-2.3.3/lib/active_record/query_cache.rb:29:in `call'
+/Library/Ruby/Gems/1.8/gems/activerecord-2.3.3/lib/active_record/query_cache.rb:29:in `call'
+/Library/Ruby/Gems/1.8/gems/activerecord-2.3.3/lib/active_record/connection_adapters/abstract/query_cache.rb:34:in `cache'
+/Library/Ruby/Gems/1.8/gems/activerecord-2.3.3/lib/active_record/query_cache.rb:9:in `cache'
+/Library/Ruby/Gems/1.8/gems/activerecord-2.3.3/lib/active_record/query_cache.rb:28:in `call'
+/Library/Ruby/Gems/1.8/gems/activerecord-2.3.3/lib/active_record/connection_adapters/abstract/connection_pool.rb:361:in `call'
+/Users/andrew/.gem/ruby/1.8/gems/rack-1.0.1/lib/rack/head.rb:9:in `call'
+/Users/andrew/.gem/ruby/1.8/gems/rack-1.0.1/lib/rack/methodoverride.rb:24:in `call'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.3/lib/action_controller/params_parser.rb:15:in `call'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.3/lib/action_controller/session/cookie_store.rb:93:in `call'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.3/lib/action_controller/reloader.rb:29:in `call'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.3/lib/action_controller/failsafe.rb:26:in `call'
+/Users/andrew/.gem/ruby/1.8/gems/rack-1.0.1/lib/rack/lock.rb:11:in `call'
+/Users/andrew/.gem/ruby/1.8/gems/rack-1.0.1/lib/rack/lock.rb:11:in `synchronize'
+/Users/andrew/.gem/ruby/1.8/gems/rack-1.0.1/lib/rack/lock.rb:11:in `call'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.3/lib/action_controller/dispatcher.rb:106:in `call'
+/Library/Ruby/Gems/1.8/gems/rails-2.3.3/lib/rails/rack/static.rb:31:in `call'
+/Users/andrew/.gem/ruby/1.8/gems/rack-1.0.1/lib/rack/urlmap.rb:46:in `call'
+/Users/andrew/.gem/ruby/1.8/gems/rack-1.0.1/lib/rack/urlmap.rb:40:in `each'
+/Users/andrew/.gem/ruby/1.8/gems/rack-1.0.1/lib/rack/urlmap.rb:40:in `call'
+/Library/Ruby/Gems/1.8/gems/rails-2.3.3/lib/rails/rack/log_tailer.rb:17:in `call'
+/Users/andrew/.gem/ruby/1.8/gems/rack-1.0.1/lib/rack/content_length.rb:13:in `call'
+/Users/andrew/.gem/ruby/1.8/gems/rack-1.0.1/lib/rack/chunked.rb:15:in `call'
+/Users/andrew/.gem/ruby/1.8/gems/rack-1.0.1/lib/rack/handler/mongrel.rb:64:in `process'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel.rb:159:in `process_client'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel.rb:158:in `each'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel.rb:158:in `process_client'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel.rb:285:in `run'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel.rb:285:in `initialize'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel.rb:285:in `new'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel.rb:285:in `run'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel.rb:268:in `initialize'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel.rb:268:in `new'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel.rb:268:in `run'
+/Users/andrew/.gem/ruby/1.8/gems/rack-1.0.1/lib/rack/handler/mongrel.rb:34:in `run'
+/Library/Ruby/Gems/1.8/gems/rails-2.3.3/lib/commands/server.rb:111
+/Library/Ruby/Site/1.8/rubygems/custom_require.rb:31:in `gem_original_require'
+/Library/Ruby/Site/1.8/rubygems/custom_require.rb:31:in `require'
+script/server:3
+
+ActionView::TemplateError (compile error
+/Users/andrew/simpleacademic/login/app/views/users/_form.html.erb:29: syntax error, unexpected kENSURE, expecting kEND
+/Users/andrew/simpleacademic/login/app/views/users/_form.html.erb:31: syntax error, unexpected $end, expecting kEND) on line #29 of app/views/users/_form.html.erb:
+26:   
+27: <% end %>
+
+    app/views/users/_form.html.erb:31:in `compile!'
+    app/views/users/edit.html.erb:3
+
+Rendered rescues/_trace (41.1ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing UsersController#edit (for 127.0.0.1 at 2009-12-06 12:00:06) [GET]
+  Parameters: {"id"=>"current"}
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+Rendering template within layouts/application
+Rendering users/edit
+
+ActionView::TemplateError (Couldn't find Role without an ID) on line #20 of app/views/users/_form.html.erb:
+17:     <%= f.password_field :password_confirmation %>
+18:   </p>
+19:   <p>
+20:     <% for role in Role.find %>
+21:     <%= check_box_tag "user[role_ids][]", role.id%>
+22:     <%= role.name %> <br />
+23:     <% end %>
+
+    app/views/users/_form.html.erb:20
+    app/views/users/_form.html.erb:1
+    app/views/users/edit.html.erb:3
+
+Rendered rescues/_trace (110.0ms)
+Rendered rescues/_request_and_response (0.2ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing UsersController#edit (for 127.0.0.1 at 2009-12-06 12:00:16) [GET]
+  Parameters: {"id"=>"current"}
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+Rendering template within layouts/application
+Rendering users/edit
+  [4;35;1mRole Load (0.4ms)[0m   [0mSELECT * FROM "roles" [0m
+Rendered users/_form (8.7ms)
+Completed in 26ms (View: 12, DB: 1) | 200 OK [http://localhost/users/current/edit]
+
+
+Processing RolesController#index (for 127.0.0.1 at 2009-12-06 12:00:25) [GET]
+  [4;36;1mRole Load (0.6ms)[0m   [0;1mSELECT * FROM "roles" [0m
+Rendering template within layouts/application
+Rendering roles/index
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+Completed in 21ms (View: 16, DB: 1) | 200 OK [http://localhost/roles]
+
+
+Processing RolesController#edit (for 127.0.0.1 at 2009-12-06 12:00:27) [GET]
+  Parameters: {"id"=>"3"}
+  [4;36;1mRole Load (0.2ms)[0m   [0;1mSELECT * FROM "roles" WHERE ("roles"."id" = 3) [0m
+Rendering template within layouts/application
+Rendering roles/edit
+Rendered roles/_form (2.0ms)
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+Completed in 23ms (View: 17, DB: 1) | 200 OK [http://localhost/roles/3/edit]
+
+
+Processing RolesController#update (for 127.0.0.1 at 2009-12-06 12:00:31) [PUT]
+  Parameters: {"commit"=>"Submit", "authenticity_token"=>"N1Vzu7VR5+qJXBQVNKzXE1psVHo8CgmPyHA+crLh0Lw=", "role"=>{"name"=>"Student"}, "id"=>"3"}
+  [4;36;1mRole Load (0.2ms)[0m   [0;1mSELECT * FROM "roles" WHERE ("roles"."id" = 3) [0m
+  [4;35;1mRole Update (0.3ms)[0m   [0mUPDATE "roles" SET "name" = 'Student', "updated_at" = '2009-12-06 20:00:31' WHERE "id" = 3[0m
+Redirected to http://localhost:3000/roles/3
+Completed in 10ms (DB: 1) | 302 Found [http://localhost/roles/3]
+
+
+Processing RolesController#show (for 127.0.0.1 at 2009-12-06 12:00:31) [GET]
+  Parameters: {"id"=>"3"}
+  [4;36;1mRole Load (0.2ms)[0m   [0;1mSELECT * FROM "roles" WHERE ("roles"."id" = 3) [0m
+Rendering template within layouts/application
+Rendering roles/show
+  [4;35;1mUser Load (0.5ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+Completed in 22ms (View: 16, DB: 1) | 200 OK [http://localhost/roles/3]
+
+
+Processing RolesController#index (for 127.0.0.1 at 2009-12-06 12:00:33) [GET]
+  [4;36;1mRole Load (0.6ms)[0m   [0;1mSELECT * FROM "roles" [0m
+Rendering template within layouts/application
+Rendering roles/index
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+Completed in 22ms (View: 17, DB: 1) | 200 OK [http://localhost/roles]
+
+
+Processing UsersController#edit (for 127.0.0.1 at 2009-12-06 12:00:35) [GET]
+  Parameters: {"id"=>"current"}
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+Rendering template within layouts/application
+Rendering users/edit
+  [4;35;1mRole Load (0.4ms)[0m   [0mSELECT * FROM "roles" [0m
+Rendered users/_form (7.1ms)
+Completed in 22ms (View: 9, DB: 1) | 200 OK [http://localhost/users/current/edit]
+
+
+Processing UsersController#update (for 127.0.0.1 at 2009-12-06 12:00:42) [PUT]
+  Parameters: {"user"=>{"name"=>"Andrew Canfield", "password_confirmation"=>"", "role_ids"=>["1", "3"], "username"=>"acanfield", "password"=>""}, "commit"=>"Submit", "authenticity_token"=>"N1Vzu7VR5+qJXBQVNKzXE1psVHo8CgmPyHA+crLh0Lw=", "id"=>"1"}
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+WARNING: Can't mass-assign these protected attributes: role_ids
+Redirected to http://localhost:3000/users/1
+Completed in 17ms (DB: 0) | 302 Found [http://localhost/users/1]
+
+
+Processing UsersController#show (for 127.0.0.1 at 2009-12-06 12:00:42) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+Rendering template within layouts/application
+Rendering users/show
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+Completed in 18ms (View: 8, DB: 1) | 200 OK [http://localhost/users/1]
+
+
+Processing UsersController#edit (for 127.0.0.1 at 2009-12-06 12:00:46) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+Rendering template within layouts/application
+Rendering users/edit
+  [4;36;1mRole Load (0.4ms)[0m   [0;1mSELECT * FROM "roles" [0m
+Rendered users/_form (7.9ms)
+Completed in 87ms (View: 9, DB: 1) | 200 OK [http://localhost/users/1/edit]
+
+
+Processing UsersController#update (for 127.0.0.1 at 2009-12-06 12:01:15) [PUT]
+  Parameters: {"user"=>{"name"=>"Andrew Canfield", "password_confirmation"=>"", "role_ids"=>["1", "3"], "username"=>"acanfield", "password"=>""}, "commit"=>"Submit", "authenticity_token"=>"N1Vzu7VR5+qJXBQVNKzXE1psVHo8CgmPyHA+crLh0Lw=", "id"=>"1"}
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+WARNING: Can't mass-assign these protected attributes: role_ids
+Redirected to http://localhost:3000/users/1
+Completed in 17ms (DB: 0) | 302 Found [http://localhost/users/1]
+
+
+Processing UsersController#show (for 127.0.0.1 at 2009-12-06 12:01:15) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+Rendering template within layouts/application
+Rendering users/show
+  [4;35;1mUser Load (1.2ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+Completed in 18ms (View: 8, DB: 2) | 200 OK [http://localhost/users/1]
+
+
+Processing UsersController#index (for 127.0.0.1 at 2009-12-06 12:01:56) [GET]
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM "users" [0m
+Rendering template within layouts/application
+Rendering users/index
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+Completed in 16ms (View: 7, DB: 1) | 200 OK [http://localhost/users]
+
+
+Processing UsersController#edit (for 127.0.0.1 at 2009-12-06 12:01:59) [GET]
+  Parameters: {"id"=>"current"}
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+Rendering template within layouts/application
+Rendering users/edit
+  [4;35;1mRole Load (0.4ms)[0m   [0mSELECT * FROM "roles" [0m
+Rendered users/_form (7.0ms)
+Completed in 22ms (View: 8, DB: 1) | 200 OK [http://localhost/users/current/edit]
+
+
+Processing UsersController#edit (for 127.0.0.1 at 2009-12-06 12:03:03) [GET]
+  Parameters: {"id"=>"current"}
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+Rendering template within layouts/application
+Rendering users/edit
+  [4;35;1mRole Load (0.4ms)[0m   [0mSELECT * FROM "roles" [0m
+  [4;36;1mRole Load (0.2ms)[0m   [0;1mSELECT "roles".id FROM "roles" INNER JOIN "authorizations" ON "roles".id = "authorizations".role_id WHERE ("roles"."id" = 1) AND (("authorizations".user_id = 1)) LIMIT 1[0m
+  [4;35;1mRole Load (0.1ms)[0m   [0mSELECT "roles".id FROM "roles" INNER JOIN "authorizations" ON "roles".id = "authorizations".role_id WHERE ("roles"."id" = 2) AND (("authorizations".user_id = 1)) LIMIT 1[0m
+  [4;36;1mRole Load (0.1ms)[0m   [0;1mSELECT "roles".id FROM "roles" INNER JOIN "authorizations" ON "roles".id = "authorizations".role_id WHERE ("roles"."id" = 3) AND (("authorizations".user_id = 1)) LIMIT 1[0m
+Rendered users/_form (14.5ms)
+Completed in 31ms (View: 17, DB: 1) | 200 OK [http://localhost/users/current/edit]
+
+
+Processing UsersController#update (for 127.0.0.1 at 2009-12-06 12:03:08) [PUT]
+  Parameters: {"user"=>{"name"=>"Andrew Canfield", "password_confirmation"=>"", "role_ids"=>["1", "3"], "username"=>"acanfield", "password"=>""}, "commit"=>"Submit", "authenticity_token"=>"N1Vzu7VR5+qJXBQVNKzXE1psVHo8CgmPyHA+crLh0Lw=", "id"=>"1"}
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+WARNING: Can't mass-assign these protected attributes: role_ids
+Redirected to http://localhost:3000/users/1
+Completed in 17ms (DB: 0) | 302 Found [http://localhost/users/1]
+
+
+Processing UsersController#show (for 127.0.0.1 at 2009-12-06 12:03:08) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+Rendering template within layouts/application
+Rendering users/show
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+Completed in 17ms (View: 7, DB: 1) | 200 OK [http://localhost/users/1]
+
+
+Processing UsersController#edit (for 127.0.0.1 at 2009-12-06 12:07:51) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+Rendering template within layouts/application
+Rendering users/edit
+  [4;35;1mRole Load (0.4ms)[0m   [0mSELECT * FROM "roles" [0m
+  [4;36;1mRole Load (0.2ms)[0m   [0;1mSELECT "roles".id FROM "roles" INNER JOIN "authorizations" ON "roles".id = "authorizations".role_id WHERE ("roles"."id" = 1) AND (("authorizations".user_id = 1)) LIMIT 1[0m
+  [4;35;1mRole Load (0.1ms)[0m   [0mSELECT "roles".id FROM "roles" INNER JOIN "authorizations" ON "roles".id = "authorizations".role_id WHERE ("roles"."id" = 2) AND (("authorizations".user_id = 1)) LIMIT 1[0m
+  [4;36;1mRole Load (0.1ms)[0m   [0;1mSELECT "roles".id FROM "roles" INNER JOIN "authorizations" ON "roles".id = "authorizations".role_id WHERE ("roles"."id" = 3) AND (("authorizations".user_id = 1)) LIMIT 1[0m
+Rendered users/_form (12.1ms)
+Completed in 28ms (View: 13, DB: 1) | 200 OK [http://localhost/users/1/edit]
+
+
+Processing UsersController#update (for 127.0.0.1 at 2009-12-06 12:07:53) [PUT]
+  Parameters: {"user"=>{"name"=>"Andrew Canfield", "password_confirmation"=>"", "role_ids"=>["1"], "username"=>"acanfield", "password"=>""}, "commit"=>"Submit", "authenticity_token"=>"N1Vzu7VR5+qJXBQVNKzXE1psVHo8CgmPyHA+crLh0Lw=", "id"=>"1"}
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;36;1mRole Load (0.2ms)[0m   [0;1mSELECT * FROM "roles" WHERE ("roles"."id" = 1) [0m
+  [4;35;1mRole Load (0.1ms)[0m   [0mSELECT "roles".* FROM "roles" INNER JOIN "authorizations" ON "roles".id = "authorizations".role_id WHERE (("authorizations".user_id = 1)) [0m
+  [4;36;1mAuthorization Create (0.4ms)[0m   [0;1mINSERT INTO "authorizations" ("updated_at", "role_id", "user_id", "created_at") VALUES('2009-12-06 20:07:53', 1, 1, '2009-12-06 20:07:53')[0m
+Redirected to http://localhost:3000/users/1
+Completed in 28ms (DB: 1) | 302 Found [http://localhost/users/1]
+
+
+Processing UsersController#show (for 127.0.0.1 at 2009-12-06 12:07:53) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+Rendering template within layouts/application
+Rendering users/show
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+Completed in 18ms (View: 8, DB: 1) | 200 OK [http://localhost/users/1]
+
+
+Processing UsersController#edit (for 127.0.0.1 at 2009-12-06 12:08:42) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+Rendering template within layouts/application
+Rendering users/edit
+  [4;36;1mRole Load (1.1ms)[0m   [0;1mSELECT * FROM "roles" [0m
+  [4;35;1mRole Load (0.3ms)[0m   [0mSELECT "roles".id FROM "roles" INNER JOIN "authorizations" ON "roles".id = "authorizations".role_id WHERE ("roles"."id" = 1) AND (("authorizations".user_id = 1)) LIMIT 1[0m
+  [4;36;1mRole Load (0.1ms)[0m   [0;1mSELECT "roles".id FROM "roles" INNER JOIN "authorizations" ON "roles".id = "authorizations".role_id WHERE ("roles"."id" = 2) AND (("authorizations".user_id = 1)) LIMIT 1[0m
+  [4;35;1mRole Load (0.1ms)[0m   [0mSELECT "roles".id FROM "roles" INNER JOIN "authorizations" ON "roles".id = "authorizations".role_id WHERE ("roles"."id" = 3) AND (("authorizations".user_id = 1)) LIMIT 1[0m
+Rendered users/_form (77.1ms)
+Completed in 92ms (View: 77, DB: 2) | 200 OK [http://localhost/users/1/edit]
+
+
+Processing UsersController#update (for 127.0.0.1 at 2009-12-06 12:08:46) [PUT]
+  Parameters: {"user"=>{"name"=>"Andrew Canfield", "password_confirmation"=>"", "role_ids"=>["1", "3"], "username"=>"acanfield", "password"=>""}, "commit"=>"Submit", "authenticity_token"=>"N1Vzu7VR5+qJXBQVNKzXE1psVHo8CgmPyHA+crLh0Lw=", "id"=>"1"}
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;35;1mRole Load (0.7ms)[0m   [0mSELECT * FROM "roles" WHERE ("roles"."id" IN (1,3)) [0m
+  [4;36;1mRole Load (0.2ms)[0m   [0;1mSELECT "roles".* FROM "roles" INNER JOIN "authorizations" ON "roles".id = "authorizations".role_id WHERE (("authorizations".user_id = 1)) [0m
+  [4;35;1mAuthorization Create (0.3ms)[0m   [0mINSERT INTO "authorizations" ("updated_at", "role_id", "user_id", "created_at") VALUES('2009-12-06 20:08:46', 3, 1, '2009-12-06 20:08:46')[0m
+Redirected to http://localhost:3000/users/1
+Completed in 29ms (DB: 2) | 302 Found [http://localhost/users/1]
+
+
+Processing UsersController#show (for 127.0.0.1 at 2009-12-06 12:08:46) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+Rendering template within layouts/application
+Rendering users/show
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+Completed in 17ms (View: 7, DB: 1) | 200 OK [http://localhost/users/1]
+
+
+Processing UsersController#index (for 127.0.0.1 at 2009-12-06 12:09:01) [GET]
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM "users" [0m
+Rendering template within layouts/application
+Rendering users/index
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+Completed in 16ms (View: 7, DB: 1) | 200 OK [http://localhost/users]
+
+
+Processing UsersController#edit (for 127.0.0.1 at 2009-12-06 12:09:04) [GET]
+  Parameters: {"id"=>"current"}
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+Rendering template within layouts/application
+Rendering users/edit
+  [4;35;1mRole Load (0.4ms)[0m   [0mSELECT * FROM "roles" [0m
+  [4;36;1mRole Load (0.2ms)[0m   [0;1mSELECT "roles".id FROM "roles" INNER JOIN "authorizations" ON "roles".id = "authorizations".role_id WHERE ("roles"."id" = 1) AND (("authorizations".user_id = 1)) LIMIT 1[0m
+  [4;35;1mRole Load (0.2ms)[0m   [0mSELECT "roles".id FROM "roles" INNER JOIN "authorizations" ON "roles".id = "authorizations".role_id WHERE ("roles"."id" = 2) AND (("authorizations".user_id = 1)) LIMIT 1[0m
+  [4;36;1mRole Load (0.2ms)[0m   [0;1mSELECT "roles".id FROM "roles" INNER JOIN "authorizations" ON "roles".id = "authorizations".role_id WHERE ("roles"."id" = 3) AND (("authorizations".user_id = 1)) LIMIT 1[0m
+Rendered users/_form (12.1ms)
+Completed in 27ms (View: 13, DB: 1) | 200 OK [http://localhost/users/current/edit]
+
+
+Processing UsersController#index (for 127.0.0.1 at 2009-12-06 12:09:07) [GET]
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT * FROM "users" [0m
+Rendering template within layouts/application
+Rendering users/index
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+Completed in 16ms (View: 7, DB: 1) | 200 OK [http://localhost/users]
+
+
+Processing UsersController#edit (for 127.0.0.1 at 2009-12-06 12:09:08) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+Rendering template within layouts/application
+Rendering users/edit
+  [4;36;1mRole Load (0.4ms)[0m   [0;1mSELECT * FROM "roles" [0m
+  [4;35;1mRole Load (0.2ms)[0m   [0mSELECT "roles".id FROM "roles" INNER JOIN "authorizations" ON "roles".id = "authorizations".role_id WHERE ("roles"."id" = 1) AND (("authorizations".user_id = 1)) LIMIT 1[0m
+  [4;36;1mRole Load (0.1ms)[0m   [0;1mSELECT "roles".id FROM "roles" INNER JOIN "authorizations" ON "roles".id = "authorizations".role_id WHERE ("roles"."id" = 2) AND (("authorizations".user_id = 1)) LIMIT 1[0m
+  [4;35;1mRole Load (0.2ms)[0m   [0mSELECT "roles".id FROM "roles" INNER JOIN "authorizations" ON "roles".id = "authorizations".role_id WHERE ("roles"."id" = 3) AND (("authorizations".user_id = 1)) LIMIT 1[0m
+Rendered users/_form (13.6ms)
+Completed in 95ms (View: 14, DB: 1) | 200 OK [http://localhost/users/1/edit]
+
+
+Processing UsersController#index (for 127.0.0.1 at 2009-12-06 12:09:11) [GET]
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM "users" [0m
+Rendering template within layouts/application
+Rendering users/index
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+Completed in 17ms (View: 7, DB: 1) | 200 OK [http://localhost/users]
+
+
+Processing UsersController#new (for 127.0.0.1 at 2009-12-06 12:09:13) [GET]
+Rendering template within layouts/application
+Rendering users/new
+  [4;36;1mRole Load (0.4ms)[0m   [0;1mSELECT * FROM "roles" [0m
+  [4;35;1mRole Load (0.2ms)[0m   [0mSELECT "roles".id FROM "roles" INNER JOIN "authorizations" ON "roles".id = "authorizations".role_id WHERE ("roles"."id" = 1) AND (("authorizations".user_id = NULL)) LIMIT 1[0m
+  [4;36;1mRole Load (0.1ms)[0m   [0;1mSELECT "roles".id FROM "roles" INNER JOIN "authorizations" ON "roles".id = "authorizations".role_id WHERE ("roles"."id" = 2) AND (("authorizations".user_id = NULL)) LIMIT 1[0m
+  [4;35;1mRole Load (0.1ms)[0m   [0mSELECT "roles".id FROM "roles" INNER JOIN "authorizations" ON "roles".id = "authorizations".role_id WHERE ("roles"."id" = 3) AND (("authorizations".user_id = NULL)) LIMIT 1[0m
+Rendered users/_form (13.7ms)
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+Completed in 27ms (View: 18, DB: 1) | 200 OK [http://localhost/users/new]
+
+
+Processing UsersController#create (for 127.0.0.1 at 2009-12-06 12:09:25) [POST]
+  Parameters: {"user"=>{"name"=>"Dave Jones", "password_confirmation"=>"123456", "role_ids"=>["2"], "username"=>"DJones", "password"=>"123456"}, "commit"=>"Submit", "authenticity_token"=>"N1Vzu7VR5+qJXBQVNKzXE1psVHo8CgmPyHA+crLh0Lw="}
+  [4;35;1mRole Load (0.2ms)[0m   [0mSELECT * FROM "roles" WHERE ("roles"."id" = 2) [0m
+  [4;36;1mUser Load (0.1ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE (LOWER("users"."username") = 'djones') LIMIT 1[0m
+  [4;35;1mUser Load (0.1ms)[0m   [0mSELECT "users".id FROM "users" WHERE ("users"."persistence_token" = '566b5701dfb5a0b2e5421792b0093ab86694d6de13e1c39a2c2094d4de811184b293182e7178d8c92c8acbbd89d7664211998472ae6cf05a99fc52942a923f03') LIMIT 1[0m
+  [4;36;1mUser Load (0.2ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;35;1mUser Create (0.5ms)[0m   [0mINSERT INTO "users" ("name", "updated_at", "crypted_password", "username", "password_salt", "persistence_token", "created_at") VALUES('Dave Jones', '2009-12-06 20:09:25', 'b16a6816e958cd3dbddd13f0b6e63b69c89f303d2c07ab0d55cb99598c7170620c60baf87a15539cf35e16ff11119edfc885f53b540d42a25b37d1a38cf361fb', 'DJones', '5Bq0uLaZS8dAF3PogGT5', '566b5701dfb5a0b2e5421792b0093ab86694d6de13e1c39a2c2094d4de811184b293182e7178d8c92c8acbbd89d7664211998472ae6cf05a99fc52942a923f03', '2009-12-06 20:09:25')[0m
+  [4;36;1mAuthorization Create (0.1ms)[0m   [0;1mINSERT INTO "authorizations" ("updated_at", "role_id", "user_id", "created_at") VALUES('2009-12-06 20:09:25', 2, 2, '2009-12-06 20:09:25')[0m
+Redirected to http://localhost:3000/users/2
+Completed in 31ms (DB: 1) | 302 Found [http://localhost/users]
+
+
+Processing UsersController#show (for 127.0.0.1 at 2009-12-06 12:09:25) [GET]
+  Parameters: {"id"=>"2"}
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 2) [0m
+Rendering template within layouts/application
+Rendering users/show
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+Completed in 16ms (View: 7, DB: 1) | 200 OK [http://localhost/users/2]
+
+
+Processing UsersController#edit (for 127.0.0.1 at 2009-12-06 12:09:27) [GET]
+  Parameters: {"id"=>"2"}
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+Rendering template within layouts/application
+Rendering users/edit
+  [4;36;1mRole Load (0.5ms)[0m   [0;1mSELECT * FROM "roles" [0m
+  [4;35;1mRole Load (0.3ms)[0m   [0mSELECT "roles".id FROM "roles" INNER JOIN "authorizations" ON "roles".id = "authorizations".role_id WHERE ("roles"."id" = 1) AND (("authorizations".user_id = 1)) LIMIT 1[0m
+  [4;36;1mRole Load (0.1ms)[0m   [0;1mSELECT "roles".id FROM "roles" INNER JOIN "authorizations" ON "roles".id = "authorizations".role_id WHERE ("roles"."id" = 2) AND (("authorizations".user_id = 1)) LIMIT 1[0m
+  [4;35;1mRole Load (0.2ms)[0m   [0mSELECT "roles".id FROM "roles" INNER JOIN "authorizations" ON "roles".id = "authorizations".role_id WHERE ("roles"."id" = 3) AND (("authorizations".user_id = 1)) LIMIT 1[0m
+Rendered users/_form (77.7ms)
+Completed in 93ms (View: 78, DB: 1) | 200 OK [http://localhost/users/2/edit]
+
+
+Processing UsersController#index (for 127.0.0.1 at 2009-12-06 12:12:03) [GET]
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM "users" [0m
+Rendering template within layouts/application
+Rendering users/index
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+Completed in 18ms (View: 8, DB: 1) | 200 OK [http://localhost/users]
+
+
+Processing UsersController#edit (for 127.0.0.1 at 2009-12-06 12:12:05) [GET]
+  Parameters: {"id"=>"2"}
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 2) [0m
+Rendering template within layouts/application
+Rendering users/edit
+  [4;35;1mRole Load (0.4ms)[0m   [0mSELECT * FROM "roles" [0m
+  [4;36;1mRole Load (0.2ms)[0m   [0;1mSELECT "roles".id FROM "roles" INNER JOIN "authorizations" ON "roles".id = "authorizations".role_id WHERE ("roles"."id" = 1) AND (("authorizations".user_id = 2)) LIMIT 1[0m
+  [4;35;1mRole Load (0.2ms)[0m   [0mSELECT "roles".id FROM "roles" INNER JOIN "authorizations" ON "roles".id = "authorizations".role_id WHERE ("roles"."id" = 2) AND (("authorizations".user_id = 2)) LIMIT 1[0m
+  [4;36;1mRole Load (0.1ms)[0m   [0;1mSELECT "roles".id FROM "roles" INNER JOIN "authorizations" ON "roles".id = "authorizations".role_id WHERE ("roles"."id" = 3) AND (("authorizations".user_id = 2)) LIMIT 1[0m
+Rendered users/_form (14.0ms)
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+Completed in 29ms (View: 19, DB: 2) | 200 OK [http://localhost/users/2/edit]
+
+
+Processing UsersController#edit (for 127.0.0.1 at 2009-12-06 12:12:08) [GET]
+  Parameters: {"id"=>"current"}
+  [4;36;1mUser Load (0.2ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 0) [0m
+
+ActiveRecord::RecordNotFound (Couldn't find User with ID=current):
+  app/controllers/users_controller.rb:25:in `edit'
+
+Rendered rescues/_trace (29.3ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (not_found)
+
+
+Processing UsersController#edit (for 127.0.0.1 at 2009-12-06 12:12:31) [GET]
+  Parameters: {"id"=>"current"}
+  [4;35;1mUser Load (0.1ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 0) [0m
+
+ActiveRecord::RecordNotFound (Couldn't find User with ID=current):
+  app/controllers/users_controller.rb:25:in `edit'
+
+Rendered rescues/_trace (97.5ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (not_found)
+
+
+Processing UsersController#edit (for 127.0.0.1 at 2009-12-06 12:12:33) [GET]
+  Parameters: {"id"=>"2"}
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 2) [0m
+Rendering template within layouts/application
+Rendering users/edit
+  [4;35;1mRole Load (0.4ms)[0m   [0mSELECT * FROM "roles" [0m
+  [4;36;1mRole Load (0.2ms)[0m   [0;1mSELECT "roles".id FROM "roles" INNER JOIN "authorizations" ON "roles".id = "authorizations".role_id WHERE ("roles"."id" = 1) AND (("authorizations".user_id = 2)) LIMIT 1[0m
+  [4;35;1mRole Load (0.2ms)[0m   [0mSELECT "roles".id FROM "roles" INNER JOIN "authorizations" ON "roles".id = "authorizations".role_id WHERE ("roles"."id" = 2) AND (("authorizations".user_id = 2)) LIMIT 1[0m
+  [4;36;1mRole Load (0.1ms)[0m   [0;1mSELECT "roles".id FROM "roles" INNER JOIN "authorizations" ON "roles".id = "authorizations".role_id WHERE ("roles"."id" = 3) AND (("authorizations".user_id = 2)) LIMIT 1[0m
+Rendered users/_form (13.7ms)
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+Completed in 29ms (View: 18, DB: 2) | 200 OK [http://localhost/users/2/edit]
+
+
+Processing UsersController#index (for 127.0.0.1 at 2009-12-06 12:12:36) [GET]
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM "users" [0m
+Rendering template within layouts/application
+Rendering users/index
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+Completed in 17ms (View: 8, DB: 1) | 200 OK [http://localhost/users]
+
+
+Processing UsersController#edit (for 127.0.0.1 at 2009-12-06 12:12:36) [GET]
+  Parameters: {"id"=>"current"}
+  [4;36;1mUser Load (0.2ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 0) [0m
+
+ActiveRecord::RecordNotFound (Couldn't find User with ID=current):
+  app/controllers/users_controller.rb:25:in `edit'
+
+Rendered rescues/_trace (29.4ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (not_found)
+
+
+Processing UsersController#edit (for 127.0.0.1 at 2009-12-06 12:13:22) [GET]
+  Parameters: {"id"=>"current"}
+  [4;35;1mUser Load (0.2ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 0) [0m
+
+ActiveRecord::RecordNotFound (Couldn't find User with ID=current):
+  app/controllers/users_controller.rb:25:in `edit'
+
+Rendered rescues/_trace (30.6ms)
+Rendered rescues/_request_and_response (0.4ms)
+Rendering rescues/layout (not_found)
+
+
+Processing UsersController#index (for 127.0.0.1 at 2009-12-06 12:13:23) [GET]
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM "users" [0m
+Rendering template within layouts/application
+Rendering users/index
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+
+ActionView::TemplateError (edit_user_url failed to generate from {:action=>"edit", :controller=>"users"} - you may have ambiguous routes, or you may need to supply additional parameters for this route.  content_url has the following required parameters: ["users", :id, "edit"] - are they all satisfied?) on line #14 of app/views/layouts/application.html.erb:
+11:       <div id="menu">
+12:         <% if current_user %>
+13:           <%= current_user %>
+14:           <%= link_to "profile", edit_user_path() %>
+15:           <%= link_to "logout", logout_path %>
+16:         <% else %>
+17:           <%= link_to "login", login_path %>
+
+    (eval):16:in `edit_user_path'
+    app/views/layouts/application.html.erb:14
+
+Rendered rescues/_trace (38.6ms)
+Rendered rescues/_request_and_response (0.2ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing UsersController#index (for 127.0.0.1 at 2009-12-06 12:13:31) [GET]
+  [4;36;1mUser Load (0.6ms)[0m   [0;1mSELECT * FROM "users" [0m
+Rendering template within layouts/application
+Rendering users/index
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+Completed in 89ms (View: 12, DB: 1) | 200 OK [http://localhost/users]
+
+
+Processing UsersController#index (for 127.0.0.1 at 2009-12-06 12:13:41) [GET]
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM "users" [0m
+Rendering template within layouts/application
+Rendering users/index
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+Completed in 21ms (View: 11, DB: 1) | 200 OK [http://localhost/users]
+
+
+Processing UsersController#index (for 127.0.0.1 at 2009-12-06 12:13:45) [GET]
+  [4;36;1mUser Load (0.5ms)[0m   [0;1mSELECT * FROM "users" [0m
+Rendering template within layouts/application
+Rendering users/index
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+Completed in 20ms (View: 11, DB: 1) | 200 OK [http://localhost/users]
+
+
+Processing UsersController#index (for 127.0.0.1 at 2009-12-06 12:13:54) [GET]
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM "users" [0m
+Rendering template within layouts/application
+Rendering users/index
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+Completed in 20ms (View: 11, DB: 1) | 200 OK [http://localhost/users]
+
+
+Processing UsersController#edit (for 127.0.0.1 at 2009-12-06 12:13:55) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+Rendering template within layouts/application
+Rendering users/edit
+  [4;35;1mRole Load (0.4ms)[0m   [0mSELECT * FROM "roles" [0m
+  [4;36;1mRole Load (0.2ms)[0m   [0;1mSELECT "roles".id FROM "roles" INNER JOIN "authorizations" ON "roles".id = "authorizations".role_id WHERE ("roles"."id" = 1) AND (("authorizations".user_id = 1)) LIMIT 1[0m
+  [4;35;1mRole Load (0.1ms)[0m   [0mSELECT "roles".id FROM "roles" INNER JOIN "authorizations" ON "roles".id = "authorizations".role_id WHERE ("roles"."id" = 2) AND (("authorizations".user_id = 1)) LIMIT 1[0m
+  [4;36;1mRole Load (0.2ms)[0m   [0;1mSELECT "roles".id FROM "roles" INNER JOIN "authorizations" ON "roles".id = "authorizations".role_id WHERE ("roles"."id" = 3) AND (("authorizations".user_id = 1)) LIMIT 1[0m
+Rendered users/_form (13.9ms)
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+Completed in 28ms (View: 18, DB: 2) | 200 OK [http://localhost/users/1/edit]
+
+
+Processing UserSessionsController#destroy (for 127.0.0.1 at 2009-12-06 12:13:59) [GET]
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+Redirected to http://localhost:3000/
+Completed in 14ms (DB: 0) | 302 Found [http://localhost/logout]
+
+
+Processing UsersController#index (for 127.0.0.1 at 2009-12-06 12:13:59) [GET]
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM "users" [0m
+Rendering template within layouts/application
+Rendering users/index
+Completed in 17ms (View: 7, DB: 0) | 200 OK [http://localhost/]
+
+
+Processing UserSessionsController#new (for 127.0.0.1 at 2009-12-06 12:14:00) [GET]
+Rendering template within layouts/application
+Rendering user_sessions/new
+Completed in 13ms (View: 3, DB: 0) | 200 OK [http://localhost/login]
+
+
+Processing UserSessionsController#create (for 127.0.0.1 at 2009-12-06 12:14:06) [POST]
+  Parameters: {"commit"=>"Submit", "user_session"=>{"username"=>"DJones", "password"=>"123456"}, "authenticity_token"=>"N1Vzu7VR5+qJXBQVNKzXE1psVHo8CgmPyHA+crLh0Lw="}
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM "users" WHERE (LOWER("users".username) = 'djones') LIMIT 1[0m
+Redirected to http://localhost:3000/
+Completed in 14ms (DB: 0) | 302 Found [http://localhost/user_sessions]
+
+
+Processing UsersController#index (for 127.0.0.1 at 2009-12-06 12:14:06) [GET]
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM "users" [0m
+Rendering template within layouts/application
+Rendering users/index
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '2') LIMIT 1[0m
+Completed in 17ms (View: 8, DB: 1) | 200 OK [http://localhost/]
+
+
+Processing UsersController#edit (for 127.0.0.1 at 2009-12-06 12:14:11) [GET]
+  Parameters: {"id"=>"2"}
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 2) [0m
+Rendering template within layouts/application
+Rendering users/edit
+  [4;36;1mRole Load (0.4ms)[0m   [0;1mSELECT * FROM "roles" [0m
+  [4;35;1mRole Load (0.2ms)[0m   [0mSELECT "roles".id FROM "roles" INNER JOIN "authorizations" ON "roles".id = "authorizations".role_id WHERE ("roles"."id" = 1) AND (("authorizations".user_id = 2)) LIMIT 1[0m
+  [4;36;1mRole Load (0.2ms)[0m   [0;1mSELECT "roles".id FROM "roles" INNER JOIN "authorizations" ON "roles".id = "authorizations".role_id WHERE ("roles"."id" = 2) AND (("authorizations".user_id = 2)) LIMIT 1[0m
+  [4;35;1mRole Load (0.1ms)[0m   [0mSELECT "roles".id FROM "roles" INNER JOIN "authorizations" ON "roles".id = "authorizations".role_id WHERE ("roles"."id" = 3) AND (("authorizations".user_id = 2)) LIMIT 1[0m
+Rendered users/_form (13.4ms)
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '2') LIMIT 1[0m
+Completed in 28ms (View: 18, DB: 2) | 200 OK [http://localhost/users/2/edit]
+
+
+Processing UsersController#update (for 127.0.0.1 at 2009-12-06 12:14:28) [PUT]
+  Parameters: {"user"=>{"name"=>"Dave Jones", "password_confirmation"=>"", "role_ids"=>["2"], "username"=>"djones", "password"=>""}, "commit"=>"Submit", "authenticity_token"=>"N1Vzu7VR5+qJXBQVNKzXE1psVHo8CgmPyHA+crLh0Lw=", "id"=>"2"}
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 2) [0m
+  [4;36;1mRole Load (0.2ms)[0m   [0;1mSELECT * FROM "roles" WHERE ("roles"."id" = 2) [0m
+  [4;35;1mRole Load (0.2ms)[0m   [0mSELECT "roles".* FROM "roles" INNER JOIN "authorizations" ON "roles".id = "authorizations".role_id WHERE (("authorizations".user_id = 2)) [0m
+  [4;36;1mUser Load (0.1ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE (LOWER("users"."username") = 'djones' AND "users".id <> 2) LIMIT 1[0m
+  [4;35;1mUser Update (0.3ms)[0m   [0mUPDATE "users" SET "username" = 'djones', "updated_at" = '2009-12-06 20:14:28' WHERE "id" = 2[0m
+Redirected to http://localhost:3000/users/2
+Completed in 30ms (DB: 1) | 302 Found [http://localhost/users/2]
+
+
+Processing UsersController#show (for 127.0.0.1 at 2009-12-06 12:14:29) [GET]
+  Parameters: {"id"=>"2"}
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 2) [0m
+Rendering template within layouts/application
+Rendering users/show
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '2') LIMIT 1[0m
+Completed in 81ms (View: 72, DB: 1) | 200 OK [http://localhost/users/2]
+
+
+Processing UserSessionsController#destroy (for 127.0.0.1 at 2009-12-06 12:14:44) [GET]
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '2') LIMIT 1[0m
+Redirected to http://localhost:3000/
+Completed in 14ms (DB: 0) | 302 Found [http://localhost/logout]
+
+
+Processing UsersController#index (for 127.0.0.1 at 2009-12-06 12:14:44) [GET]
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM "users" [0m
+Rendering template within layouts/application
+Rendering users/index
+Completed in 19ms (View: 10, DB: 0) | 200 OK [http://localhost/]
+
+
+Processing UserSessionsController#new (for 127.0.0.1 at 2009-12-06 12:14:46) [GET]
+Rendering template within layouts/application
+Rendering user_sessions/new
+Completed in 13ms (View: 3, DB: 0) | 200 OK [http://localhost/login]
+
+
+Processing UserSessionsController#new (for 127.0.0.1 at 2009-12-06 12:15:23) [GET]
+Rendering template within layouts/application
+Rendering user_sessions/new
+Completed in 15ms (View: 6, DB: 0) | 200 OK [http://localhost/login]
+
+
+Processing UserSessionsController#create (for 127.0.0.1 at 2009-12-06 12:15:30) [POST]
+  Parameters: {"commit"=>"Submit", "user_session"=>{"username"=>"acanfield", "password"=>"123456"}, "authenticity_token"=>"N1Vzu7VR5+qJXBQVNKzXE1psVHo8CgmPyHA+crLh0Lw="}
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM "users" WHERE (LOWER("users".username) = 'acanfield') LIMIT 1[0m
+Redirected to http://localhost:3000/
+Completed in 14ms (DB: 0) | 302 Found [http://localhost/user_sessions]
+
+
+Processing UsersController#index (for 127.0.0.1 at 2009-12-06 12:15:30) [GET]
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM "users" [0m
+Rendering template within layouts/application
+Rendering users/index
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+Completed in 17ms (View: 8, DB: 1) | 200 OK [http://localhost/]
+  [4;36;1mSQL (0.2ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mselect sqlite_version(*)[0m
+  [4;36;1mSQL (1.3ms)[0m   [0;1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [4;35;1mSQL (1.1ms)[0m   [0mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSELECT version FROM schema_migrations[0m
+Migrating to CreateUsers (20091206193228)
+  [4;36;1mSQL (0.4ms)[0m   [0;1mCREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "username" varchar(255), "crypted_password" varchar(255), "password_salt" varchar(255), "persistence_token" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (0.1ms)[0m   [0mINSERT INTO schema_migrations (version) VALUES ('20091206193228')[0m
+Migrating to CreateRoles (20091206193240)
+  [4;36;1mSQL (0.3ms)[0m   [0;1mCREATE TABLE "roles" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (0.1ms)[0m   [0mINSERT INTO schema_migrations (version) VALUES ('20091206193240')[0m
+Migrating to CreatePermissions (20091206193250)
+  [4;36;1mSQL (0.3ms)[0m   [0;1mCREATE TABLE "permissions" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "user_id" integer, "role_id" integer, "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (0.1ms)[0m   [0mINSERT INTO schema_migrations (version) VALUES ('20091206193250')[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mPRAGMA index_list("permissions")[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mPRAGMA index_list("roles")[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mPRAGMA index_list("users")[0m
+
+
+Processing UsersController#index (for 127.0.0.1 at 2009-12-06 15:02:31) [GET]
+  [4;36;1mUser Load (0.2ms)[0m   [0;1mSELECT * FROM "users" [0m
+Rendering template within layouts/application
+Rendering users/index
+Completed in 29ms (View: 11, DB: 0) | 200 OK [http://localhost/]
+
+
+Processing RolesController#index (for 127.0.0.1 at 2009-12-06 15:02:34) [GET]
+  [4;35;1mRole Load (0.3ms)[0m   [0mSELECT * FROM "roles" [0m
+Rendering template within layouts/application
+Rendering roles/index
+Completed in 19ms (View: 14, DB: 0) | 200 OK [http://localhost/roles]
+
+
+Processing RolesController#new (for 127.0.0.1 at 2009-12-06 15:02:36) [GET]
+Rendering template within layouts/application
+Rendering roles/new
+Rendered roles/_form (8.1ms)
+Completed in 51ms (View: 47, DB: 0) | 200 OK [http://localhost/roles/new]
+
+
+Processing RolesController#create (for 127.0.0.1 at 2009-12-06 15:02:38) [POST]
+  Parameters: {"commit"=>"Submit", "authenticity_token"=>"ekWmx9QCS1BlmxHzqYkely4NFQPTWgDcmHeqoR2uTLo=", "role"=>{"name"=>"admin"}}
+  [4;36;1mRole Create (0.4ms)[0m   [0;1mINSERT INTO "roles" ("name", "updated_at", "created_at") VALUES('admin', '2009-12-06 23:02:38', '2009-12-06 23:02:38')[0m
+Redirected to http://localhost:3000/roles/1
+Completed in 29ms (DB: 0) | 302 Found [http://localhost/roles]
+
+
+Processing RolesController#show (for 127.0.0.1 at 2009-12-06 15:02:39) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mRole Load (0.2ms)[0m   [0mSELECT * FROM "roles" WHERE ("roles"."id" = 1) [0m
+Rendering template within layouts/application
+Rendering roles/show
+Completed in 23ms (View: 18, DB: 0) | 200 OK [http://localhost/roles/1]
+
+
+Processing RolesController#index (for 127.0.0.1 at 2009-12-06 15:02:40) [GET]
+  [4;36;1mRole Load (0.5ms)[0m   [0;1mSELECT * FROM "roles" [0m
+Rendering template within layouts/application
+Rendering roles/index
+Completed in 70ms (View: 66, DB: 0) | 200 OK [http://localhost/roles]
+
+
+Processing RolesController#new (for 127.0.0.1 at 2009-12-06 15:02:42) [GET]
+Rendering template within layouts/application
+Rendering roles/new
+Rendered roles/_form (1.6ms)
+Completed in 17ms (View: 12, DB: 0) | 200 OK [http://localhost/roles/new]
+
+
+Processing RolesController#create (for 127.0.0.1 at 2009-12-06 15:02:46) [POST]
+  Parameters: {"commit"=>"Submit", "authenticity_token"=>"ekWmx9QCS1BlmxHzqYkely4NFQPTWgDcmHeqoR2uTLo=", "role"=>{"name"=>"teacher"}}
+  [4;35;1mRole Create (0.3ms)[0m   [0mINSERT INTO "roles" ("name", "updated_at", "created_at") VALUES('teacher', '2009-12-06 23:02:46', '2009-12-06 23:02:46')[0m
+Redirected to http://localhost:3000/roles/2
+Completed in 9ms (DB: 0) | 302 Found [http://localhost/roles]
+
+
+Processing RolesController#show (for 127.0.0.1 at 2009-12-06 15:02:46) [GET]
+  Parameters: {"id"=>"2"}
+  [4;36;1mRole Load (0.2ms)[0m   [0;1mSELECT * FROM "roles" WHERE ("roles"."id" = 2) [0m
+Rendering template within layouts/application
+Rendering roles/show
+Completed in 17ms (View: 11, DB: 0) | 200 OK [http://localhost/roles/2]
+
+
+Processing RolesController#index (for 127.0.0.1 at 2009-12-06 15:02:47) [GET]
+  [4;35;1mRole Load (0.5ms)[0m   [0mSELECT * FROM "roles" [0m
+Rendering template within layouts/application
+Rendering roles/index
+Completed in 17ms (View: 13, DB: 1) | 200 OK [http://localhost/roles]
+
+
+Processing RolesController#new (for 127.0.0.1 at 2009-12-06 15:02:49) [GET]
+Rendering template within layouts/application
+Rendering roles/new
+Rendered roles/_form (1.6ms)
+Completed in 16ms (View: 12, DB: 0) | 200 OK [http://localhost/roles/new]
+
+
+Processing RolesController#create (for 127.0.0.1 at 2009-12-06 15:02:52) [POST]
+  Parameters: {"commit"=>"Submit", "authenticity_token"=>"ekWmx9QCS1BlmxHzqYkely4NFQPTWgDcmHeqoR2uTLo=", "role"=>{"name"=>"student"}}
+  [4;36;1mRole Create (0.3ms)[0m   [0;1mINSERT INTO "roles" ("name", "updated_at", "created_at") VALUES('student', '2009-12-06 23:02:52', '2009-12-06 23:02:52')[0m
+Redirected to http://localhost:3000/roles/3
+Completed in 24ms (DB: 0) | 302 Found [http://localhost/roles]
+
+
+Processing RolesController#show (for 127.0.0.1 at 2009-12-06 15:02:52) [GET]
+  Parameters: {"id"=>"3"}
+  [4;35;1mRole Load (0.2ms)[0m   [0mSELECT * FROM "roles" WHERE ("roles"."id" = 3) [0m
+Rendering template within layouts/application
+Rendering roles/show
+Completed in 77ms (View: 72, DB: 0) | 200 OK [http://localhost/roles/3]
+
+
+Processing RolesController#index (for 127.0.0.1 at 2009-12-06 15:02:53) [GET]
+  [4;36;1mRole Load (0.6ms)[0m   [0;1mSELECT * FROM "roles" [0m
+Rendering template within layouts/application
+Rendering roles/index
+Completed in 19ms (View: 14, DB: 1) | 200 OK [http://localhost/roles]
+
+
+Processing UsersController#index (for 127.0.0.1 at 2009-12-06 15:03:00) [GET]
+  [4;35;1mUser Load (0.1ms)[0m   [0mSELECT * FROM "users" [0m
+Rendering template within layouts/application
+Rendering users/index
+Completed in 13ms (View: 4, DB: 0) | 200 OK [http://localhost/]
+
+
+Processing UsersController#new (for 127.0.0.1 at 2009-12-06 15:03:02) [GET]
+Rendering template within layouts/application
+Rendering users/new
+  [4;36;1mRole Load (0.4ms)[0m   [0;1mSELECT * FROM "roles" [0m
+
+ActionView::TemplateError (Expected /Users/andrew/simpleacademic/temp3/app/models/permission.rb to define Permission) on line #22 of app/views/users/_form.html.erb:
+19:   <p>
+20:     <%= f.label :roles %><br />
+21:      <% for role in Role.all %>
+22:        <%= check_box_tag "user[role_ids][]", role.id, @user.roles.include?(role) %>
+23:        <%=h role.name %><br />
+24:      <% end %>
+25:   </p>
+
+    app/views/users/_form.html.erb:22
+    app/views/users/_form.html.erb:21:in `each'
+    app/views/users/_form.html.erb:21
+    app/views/users/_form.html.erb:1
+    app/views/users/new.html.erb:3
+
+Rendered rescues/_trace (113.2ms)
+Rendered rescues/_request_and_response (1.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing UsersController#new (for 127.0.0.1 at 2009-12-06 15:03:27) [GET]
+Rendering template within layouts/application
+Rendering users/new
+  [4;35;1mRole Load (0.4ms)[0m   [0mSELECT * FROM "roles" [0m
+  [4;36;1mRole Load (0.2ms)[0m   [0;1mSELECT "roles".id FROM "roles" INNER JOIN "permissions" ON "roles".id = "permissions".role_id WHERE ("roles"."id" = 1) AND (("permissions".user_id = NULL)) LIMIT 1[0m
+  [4;35;1mRole Load (0.1ms)[0m   [0mSELECT "roles".id FROM "roles" INNER JOIN "permissions" ON "roles".id = "permissions".role_id WHERE ("roles"."id" = 2) AND (("permissions".user_id = NULL)) LIMIT 1[0m
+  [4;36;1mRole Load (0.1ms)[0m   [0;1mSELECT "roles".id FROM "roles" INNER JOIN "permissions" ON "roles".id = "permissions".role_id WHERE ("roles"."id" = 3) AND (("permissions".user_id = NULL)) LIMIT 1[0m
+Rendered users/_form (12.7ms)
+Completed in 24ms (View: 15, DB: 1) | 200 OK [http://localhost/users/new]
+
+
+Processing UsersController#create (for 127.0.0.1 at 2009-12-06 15:03:39) [POST]
+  Parameters: {"user"=>{"name"=>"Andrew Canfield", "password_confirmation"=>"123456", "role_ids"=>["1", "3"], "username"=>"acanfield", "password"=>"123456"}, "commit"=>"Submit", "authenticity_token"=>"ekWmx9QCS1BlmxHzqYkely4NFQPTWgDcmHeqoR2uTLo="}
+  [4;35;1mRole Load (0.6ms)[0m   [0mSELECT * FROM "roles" WHERE ("roles"."id" IN (1,3)) [0m
+  [4;36;1mUser Load (0.2ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE (LOWER("users"."username") = 'acanfield') LIMIT 1[0m
+  [4;35;1mUser Load (0.1ms)[0m   [0mSELECT "users".id FROM "users" WHERE ("users"."persistence_token" = 'f098c2dd09913167e9298f8b6833d3f1f35677cc220fab8bfe948d629ca3f55d7764a136bb65a70b744a9440e91ad584c333362b49010a90a9d4f01b8f0107e9') LIMIT 1[0m
+  [4;36;1mUser Create (0.3ms)[0m   [0;1mINSERT INTO "users" ("name", "updated_at", "crypted_password", "username", "password_salt", "persistence_token", "created_at") VALUES('Andrew Canfield', '2009-12-06 23:03:39', '4a5f9e14a3b7362ec4a39fede2c707e8cf3bce48d2d9cbfb28eb5b4f6925e9221567556985cb61388830fe6e0c8759a5b0b98628de4c22419b3550fbec6229f6', 'acanfield', 'j-0hyXdzDODpNonw7oSs', 'f098c2dd09913167e9298f8b6833d3f1f35677cc220fab8bfe948d629ca3f55d7764a136bb65a70b744a9440e91ad584c333362b49010a90a9d4f01b8f0107e9', '2009-12-06 23:03:39')[0m
+  [4;35;1mPermission Create (0.1ms)[0m   [0mINSERT INTO "permissions" ("updated_at", "role_id", "user_id", "created_at") VALUES('2009-12-06 23:03:39', 1, 1, '2009-12-06 23:03:39')[0m
+  [4;36;1mPermission Create (0.1ms)[0m   [0;1mINSERT INTO "permissions" ("updated_at", "role_id", "user_id", "created_at") VALUES('2009-12-06 23:03:39', 3, 1, '2009-12-06 23:03:39')[0m
+Redirected to http://localhost:3000/users/1
+Completed in 156ms (DB: 1) | 302 Found [http://localhost/users]
+
+
+Processing UsersController#show (for 127.0.0.1 at 2009-12-06 15:03:39) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+Rendering template within layouts/application
+Rendering users/show
+  [4;36;1mUser Load (0.7ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."persistence_token" = 'f098c2dd09913167e9298f8b6833d3f1f35677cc220fab8bfe948d629ca3f55d7764a136bb65a70b744a9440e91ad584c333362b49010a90a9d4f01b8f0107e9') LIMIT 1[0m
+Completed in 24ms (View: 14, DB: 1) | 200 OK [http://localhost/users/1]
+
+
+Processing UserSessionsController#destroy (for 127.0.0.1 at 2009-12-06 15:04:40) [GET]
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."persistence_token" = 'f098c2dd09913167e9298f8b6833d3f1f35677cc220fab8bfe948d629ca3f55d7764a136bb65a70b744a9440e91ad584c333362b49010a90a9d4f01b8f0107e9') LIMIT 1[0m
+Redirected to http://localhost:3000/
+Completed in 14ms (DB: 0) | 302 Found [http://localhost/logout]
+
+
+Processing UsersController#index (for 127.0.0.1 at 2009-12-06 15:04:40) [GET]
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM "users" [0m
+Rendering template within layouts/application
+Rendering users/index
+Completed in 14ms (View: 6, DB: 0) | 200 OK [http://localhost/]
+
+
+Processing RolesController#index (for 127.0.0.1 at 2009-12-06 15:04:46) [GET]
+  [4;35;1mRole Load (0.6ms)[0m   [0mSELECT * FROM "roles" [0m
+Rendering template within layouts/application
+Rendering roles/index
+Completed in 18ms (View: 13, DB: 1) | 200 OK [http://localhost/roles]
+
+
+Processing RolesController#index (for 127.0.0.1 at 2009-12-06 15:06:46) [GET]
+  Parameters: {"action"=>"index", "controller"=>"roles"}
+  [4;36;1mRole Load (0.8ms)[0m   [0;1mSELECT * FROM "roles" [0m
+Rendering template within layouts/application
+Rendering roles/index
+Completed in 85ms (View: 79, DB: 1) | 200 OK [http://localhost/roles]
+
+
+Processing UsersController#index (for 127.0.0.1 at 2009-12-06 15:06:51) [GET]
+  Parameters: {"action"=>"index", "controller"=>"users"}
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT * FROM "users" [0m
+Rendering template within layouts/application
+Rendering users/index
+Completed in 15ms (View: 6, DB: 0) | 200 OK [http://localhost/]
+
+
+Processing UsersController#index (for 127.0.0.1 at 2009-12-06 15:07:44) [GET]
+  Parameters: {"action"=>"index", "controller"=>"users"}
+
+NameError (uninitialized constant ApplicationController::Authorization):
+  app/controllers/application_controller.rb:14
+
+Rendered rescues/_trace (30.0ms)
+Rendered rescues/_request_and_response (0.2ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing UsersController#index (for 127.0.0.1 at 2009-12-06 15:08:30) [GET]
+  Parameters: {"action"=>"index", "controller"=>"users"}
+
+NameError (uninitialized constant ApplicationController::Authorization):
+  app/controllers/application_controller.rb:14
+
+Rendered rescues/_trace (31.1ms)
+Rendered rescues/_request_and_response (1.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing UsersController#index (for 127.0.0.1 at 2009-12-06 15:08:31) [GET]
+  Parameters: {"action"=>"index", "controller"=>"users"}
+
+NameError (uninitialized constant ApplicationController::Authorization):
+  app/controllers/application_controller.rb:14
+
+Rendered rescues/_trace (31.7ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing UsersController#index (for 127.0.0.1 at 2009-12-06 15:10:32) [GET]
+  Parameters: {"action"=>"index", "controller"=>"users"}
+
+NameError (uninitialized constant ApplicationController::Authorization):
+  app/controllers/application_controller.rb:14
+
+Rendered rescues/_trace (31.3ms)
+Rendered rescues/_request_and_response (1.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing UsersController#index (for 127.0.0.1 at 2009-12-06 15:11:16) [GET]
+  Parameters: {"action"=>"index", "controller"=>"users"}
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM "users" [0m
+Rendering template within layouts/application
+Rendering users/index
+Completed in 30ms (View: 10, DB: 0) | 200 OK [http://localhost/]
+
+
+Processing UsersController#index (for 127.0.0.1 at 2009-12-06 16:30:15) [GET]
+  Parameters: {"action"=>"index", "controller"=>"users"}
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM "users" [0m
+Rendering template within layouts/application
+Rendering users/index
+Completed in 42ms (View: 8, DB: 1) | 200 OK [http://localhost/]
+
+
+Processing UsersController#edit (for 127.0.0.1 at 2009-12-06 16:30:18) [GET]
+  Parameters: {"action"=>"edit", "id"=>"1", "controller"=>"users"}
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+Rendering template within layouts/application
+Rendering users/edit
+  [4;36;1mRole Load (0.5ms)[0m   [0;1mSELECT * FROM "roles" [0m
+  [4;35;1mRole Load (0.3ms)[0m   [0mSELECT "roles".id FROM "roles" INNER JOIN "permissions" ON "roles".id = "permissions".role_id WHERE ("roles"."id" = 1) AND (("permissions".user_id = 1)) LIMIT 1[0m
+  [4;36;1mRole Load (0.1ms)[0m   [0;1mSELECT "roles".id FROM "roles" INNER JOIN "permissions" ON "roles".id = "permissions".role_id WHERE ("roles"."id" = 2) AND (("permissions".user_id = 1)) LIMIT 1[0m
+  [4;35;1mRole Load (0.2ms)[0m   [0mSELECT "roles".id FROM "roles" INNER JOIN "permissions" ON "roles".id = "permissions".role_id WHERE ("roles"."id" = 3) AND (("permissions".user_id = 1)) LIMIT 1[0m
+Rendered users/_form (15.5ms)
+Completed in 65ms (View: 49, DB: 2) | 200 OK [http://localhost/users/1/edit]
+
+
+Processing UsersController#update (for 127.0.0.1 at 2009-12-06 16:30:21) [PUT]
+  Parameters: {"user"=>{"name"=>"Andrew Canfield", "password_confirmation"=>"[FILTERED]", "role_ids"=>[{"1"=>nil}, {"3"=>nil}], "username"=>"acanfield", "password"=>"[FILTERED]"}, "commit"=>"Submit", "action"=>"update", "_method"=>"put", "authenticity_token"=>"ekWmx9QCS1BlmxHzqYkely4NFQPTWgDcmHeqoR2uTLo=", "id"=>"1", "controller"=>"users"}
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+  [4;35;1mRole Load (0.8ms)[0m   [0mSELECT * FROM "roles" WHERE ("roles"."id" IN (1,3)) [0m
+  [4;36;1mRole Load (0.3ms)[0m   [0;1mSELECT "roles".* FROM "roles" INNER JOIN "permissions" ON "roles".id = "permissions".role_id WHERE (("permissions".user_id = 1)) [0m
+Redirected to http://localhost:3000/users/1
+Completed in 29ms (DB: 2) | 302 Found [http://localhost/users/1]
+
+
+Processing UsersController#show (for 127.0.0.1 at 2009-12-06 16:30:21) [GET]
+  Parameters: {"action"=>"show", "id"=>"1", "controller"=>"users"}
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+Rendering template within layouts/application
+Rendering users/show
+Completed in 21ms (View: 5, DB: 1) | 200 OK [http://localhost/users/1]
+
+
+Processing UserSessionsController#new (for 127.0.0.1 at 2009-12-06 16:30:23) [GET]
+  Parameters: {"action"=>"new", "controller"=>"user_sessions"}
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+Rendering template within layouts/application
+Rendering user_sessions/new
+Completed in 37ms (View: 23, DB: 1) | 200 OK [http://localhost/login]
+
+
+Processing UserSessionsController#create (for 127.0.0.1 at 2009-12-06 16:30:27) [POST]
+  Parameters: {"commit"=>"Submit", "user_session"=>{"username"=>"acanfield", "password"=>"[FILTERED]"}, "action"=>"create", "authenticity_token"=>"ekWmx9QCS1BlmxHzqYkely4NFQPTWgDcmHeqoR2uTLo=", "controller"=>"user_sessions"}
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM "users" WHERE (LOWER("users".username) = 'acanfield') LIMIT 1[0m
+Redirected to http://localhost:3000/
+Completed in 152ms (DB: 1) | 302 Found [http://localhost/user_sessions]
+
+
+Processing UsersController#index (for 127.0.0.1 at 2009-12-06 16:30:27) [GET]
+  Parameters: {"action"=>"index", "controller"=>"users"}
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM "users" [0m
+Rendering template within layouts/application
+Rendering users/index
+Completed in 17ms (View: 3, DB: 1) | 200 OK [http://localhost/]
+
+
+Processing UsersController#index (for 127.0.0.1 at 2009-12-06 16:31:10) [GET]
+  Parameters: {"action"=>"index", "controller"=>"users"}
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM "users" [0m
+Rendering template within layouts/application
+Rendering users/index
+Completed in 16ms (View: 2, DB: 1) | 200 OK [http://localhost/]
+
+
+Processing RolesController#index (for 127.0.0.1 at 2009-12-06 16:31:14) [GET]
+  Parameters: {"action"=>"index", "controller"=>"roles"}
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+The use of user.roles is deprecated.  Please add a method role_symbols to your User model.
+  [4;36;1mRole Load (0.4ms)[0m   [0;1mSELECT "roles".* FROM "roles" INNER JOIN "permissions" ON "roles".id = "permissions".role_id WHERE (("permissions".user_id = 1)) [0m
+Permission denied: User.roles doesn't return an Array of Symbols ([#<Role id: 1, name: "admin", created_at: "2009-12-06 23:02:38", updated_at: "2009-12-06 23:02:38">, #<Role id: 3, name: "student", created_at: "2009-12-06 23:02:52", updated_at: "2009-12-06 23:02:52">])
+Filter chain halted as [:filter_access_filter] rendered_or_redirected.
+Completed in 23ms (View: 1, DB: 1) | 403 Forbidden [http://localhost/roles]
+
+
+Processing RolesController#index (for 127.0.0.1 at 2009-12-06 16:32:05) [GET]
+  Parameters: {"action"=>"index", "controller"=>"roles"}
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+The use of user.roles is deprecated.  Please add a method role_symbols to your User model.
+  [4;36;1mRole Load (0.4ms)[0m   [0;1mSELECT "roles".* FROM "roles" INNER JOIN "permissions" ON "roles".id = "permissions".role_id WHERE (("permissions".user_id = 1)) [0m
+Permission denied: User.roles doesn't return an Array of Symbols ([#<Role id: 1, name: "admin", created_at: "2009-12-06 23:02:38", updated_at: "2009-12-06 23:02:38">, #<Role id: 3, name: "student", created_at: "2009-12-06 23:02:52", updated_at: "2009-12-06 23:02:52">])
+Filter chain halted as [:filter_access_filter] rendered_or_redirected.
+Completed in 22ms (View: 1, DB: 1) | 403 Forbidden [http://localhost/roles]
+
+
+Processing RolesController#index (for 127.0.0.1 at 2009-12-06 16:33:42) [GET]
+  Parameters: {"action"=>"index", "controller"=>"roles"}
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;36;1mRole Load (0.4ms)[0m   [0;1mSELECT "roles".* FROM "roles" INNER JOIN "permissions" ON "roles".id = "permissions".role_id WHERE (("permissions".user_id = 1)) [0m
+  [4;35;1mRole Load (0.5ms)[0m   [0mSELECT * FROM "roles" [0m
+Rendering template within layouts/application
+Rendering roles/index
+Completed in 96ms (View: 6, DB: 1) | 200 OK [http://localhost/roles]
+
+
+Processing UserSessionsController#destroy (for 127.0.0.1 at 2009-12-06 16:33:54) [GET]
+  Parameters: {"action"=>"destroy", "controller"=>"user_sessions"}
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+Redirected to http://localhost:3000/
+Completed in 16ms (DB: 0) | 302 Found [http://localhost/logout]
+
+
+Processing UsersController#index (for 127.0.0.1 at 2009-12-06 16:33:54) [GET]
+  Parameters: {"action"=>"index", "controller"=>"users"}
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM "users" [0m
+Rendering template within layouts/application
+Rendering users/index
+Completed in 15ms (View: 3, DB: 0) | 200 OK [http://localhost/]
+
+
+Processing RolesController#index (for 127.0.0.1 at 2009-12-06 16:33:58) [GET]
+  Parameters: {"action"=>"index", "controller"=>"roles"}
+Permission denied: No matching rules found for index for #<Authorization::GuestUser:0x2442080 @role_symbols=[:guest]> (roles [:guest], privileges [:index], context :roles).
+Filter chain halted as [:filter_access_filter] rendered_or_redirected.
+Completed in 11ms (View: 1, DB: 0) | 403 Forbidden [http://localhost/roles]
+
+
+Processing UserSessionsController#new (for 127.0.0.1 at 2009-12-06 16:34:01) [GET]
+  Parameters: {"action"=>"new", "controller"=>"user_sessions"}
+Rendering template within layouts/application
+Rendering user_sessions/new
+Completed in 13ms (View: 2, DB: 0) | 200 OK [http://localhost/login]
+
+
+Processing UserSessionsController#create (for 127.0.0.1 at 2009-12-06 16:34:06) [POST]
+  Parameters: {"commit"=>"Submit", "user_session"=>{"username"=>"acanfield", "password"=>"[FILTERED]"}, "action"=>"create", "authenticity_token"=>"ekWmx9QCS1BlmxHzqYkely4NFQPTWgDcmHeqoR2uTLo=", "controller"=>"user_sessions"}
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM "users" WHERE (LOWER("users".username) = 'acanfield') LIMIT 1[0m
+Redirected to http://localhost:3000/
+Completed in 15ms (DB: 0) | 302 Found [http://localhost/user_sessions]
+
+
+Processing UsersController#index (for 127.0.0.1 at 2009-12-06 16:34:06) [GET]
+  Parameters: {"action"=>"index", "controller"=>"users"}
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT * FROM "users" [0m
+Rendering template within layouts/application
+Rendering users/index
+Completed in 86ms (View: 2, DB: 1) | 200 OK [http://localhost/]
+
+
+Processing RolesController#index (for 127.0.0.1 at 2009-12-06 16:34:17) [GET]
+  Parameters: {"action"=>"index", "controller"=>"roles"}
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;35;1mRole Load (0.4ms)[0m   [0mSELECT "roles".* FROM "roles" INNER JOIN "permissions" ON "roles".id = "permissions".role_id WHERE (("permissions".user_id = 1)) [0m
+  [4;36;1mRole Load (0.4ms)[0m   [0;1mSELECT * FROM "roles" [0m
+Rendering template within layouts/application
+Rendering roles/index
+Completed in 27ms (View: 3, DB: 1) | 200 OK [http://localhost/roles]
+
+
+Processing UsersController#edit (for 127.0.0.1 at 2009-12-06 16:34:21) [GET]
+  Parameters: {"action"=>"edit", "id"=>"1", "controller"=>"users"}
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+Rendering template within layouts/application
+Rendering users/edit
+  [4;35;1mRole Load (0.4ms)[0m   [0mSELECT * FROM "roles" [0m
+  [4;36;1mRole Load (0.4ms)[0m   [0;1mSELECT "roles".id FROM "roles" INNER JOIN "permissions" ON "roles".id = "permissions".role_id WHERE ("roles"."id" = 1) AND (("permissions".user_id = 1)) LIMIT 1[0m
+  [4;35;1mRole Load (0.1ms)[0m   [0mSELECT "roles".id FROM "roles" INNER JOIN "permissions" ON "roles".id = "permissions".role_id WHERE ("roles"."id" = 2) AND (("permissions".user_id = 1)) LIMIT 1[0m
+  [4;36;1mRole Load (0.2ms)[0m   [0;1mSELECT "roles".id FROM "roles" INNER JOIN "permissions" ON "roles".id = "permissions".role_id WHERE ("roles"."id" = 3) AND (("permissions".user_id = 1)) LIMIT 1[0m
+Rendered users/_form (12.7ms)
+Completed in 29ms (View: 13, DB: 2) | 200 OK [http://localhost/users/1/edit]
+
+
+Processing UsersController#update (for 127.0.0.1 at 2009-12-06 16:34:25) [PUT]
+  Parameters: {"user"=>{"name"=>"Andrew Canfield", "password_confirmation"=>"[FILTERED]", "role_ids"=>[{"1"=>nil}], "username"=>"acanfield", "password"=>"[FILTERED]"}, "commit"=>"Submit", "action"=>"update", "_method"=>"put", "authenticity_token"=>"ekWmx9QCS1BlmxHzqYkely4NFQPTWgDcmHeqoR2uTLo=", "id"=>"1", "controller"=>"users"}
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+  [4;35;1mRole Load (0.2ms)[0m   [0mSELECT * FROM "roles" WHERE ("roles"."id" = 1) [0m
+  [4;36;1mRole Load (0.3ms)[0m   [0;1mSELECT "roles".* FROM "roles" INNER JOIN "permissions" ON "roles".id = "permissions".role_id WHERE (("permissions".user_id = 1)) [0m
+  [4;35;1mPermission Delete all (0.3ms)[0m   [0mDELETE FROM "permissions" WHERE ("permissions"."role_id" = 3 AND "permissions"."user_id" = 1) [0m
+Redirected to http://localhost:3000/users/1
+Completed in 25ms (DB: 1) | 302 Found [http://localhost/users/1]
+
+
+Processing UsersController#show (for 127.0.0.1 at 2009-12-06 16:34:25) [GET]
+  Parameters: {"action"=>"show", "id"=>"1", "controller"=>"users"}
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;35;1mUser Load (0.5ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+Rendering template within layouts/application
+Rendering users/show
+Completed in 18ms (View: 2, DB: 1) | 200 OK [http://localhost/users/1]
+
+
+Processing RolesController#index (for 127.0.0.1 at 2009-12-06 16:34:35) [GET]
+  Parameters: {"action"=>"index", "controller"=>"roles"}
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;35;1mRole Load (0.3ms)[0m   [0mSELECT "roles".* FROM "roles" INNER JOIN "permissions" ON "roles".id = "permissions".role_id WHERE (("permissions".user_id = 1)) [0m
+  [4;36;1mRole Load (0.3ms)[0m   [0;1mSELECT * FROM "roles" [0m
+Rendering template within layouts/application
+Rendering roles/index
+Completed in 27ms (View: 3, DB: 1) | 200 OK [http://localhost/roles]
+
+
+Processing UsersController#update (for 127.0.0.1 at 2009-12-06 16:34:43) [PUT]
+  Parameters: {"user"=>{"name"=>"Andrew Canfield", "password_confirmation"=>"[FILTERED]", "role_ids"=>[{"3"=>nil}], "username"=>"acanfield", "password"=>"[FILTERED]"}, "commit"=>"Submit", "action"=>"update", "_method"=>"put", "authenticity_token"=>"ekWmx9QCS1BlmxHzqYkely4NFQPTWgDcmHeqoR2uTLo=", "id"=>"1", "controller"=>"users"}
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+  [4;35;1mRole Load (0.3ms)[0m   [0mSELECT * FROM "roles" WHERE ("roles"."id" = 3) [0m
+  [4;36;1mRole Load (0.2ms)[0m   [0;1mSELECT "roles".* FROM "roles" INNER JOIN "permissions" ON "roles".id = "permissions".role_id WHERE (("permissions".user_id = 1)) [0m
+  [4;35;1mPermission Delete all (0.3ms)[0m   [0mDELETE FROM "permissions" WHERE ("permissions"."role_id" = 1 AND "permissions"."user_id" = 1) [0m
+  [4;36;1mPermission Create (0.1ms)[0m   [0;1mINSERT INTO "permissions" ("updated_at", "role_id", "user_id", "created_at") VALUES('2009-12-07 00:34:43', 3, 1, '2009-12-07 00:34:43')[0m
+Redirected to http://localhost:3000/users/1
+Completed in 29ms (DB: 2) | 302 Found [http://localhost/users/1]
+
+
+Processing UsersController#show (for 127.0.0.1 at 2009-12-06 16:34:43) [GET]
+  Parameters: {"action"=>"show", "id"=>"1", "controller"=>"users"}
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+Rendering template within layouts/application
+Rendering users/show
+Completed in 19ms (View: 3, DB: 1) | 200 OK [http://localhost/users/1]
+
+
+Processing RolesController#index (for 127.0.0.1 at 2009-12-06 16:34:49) [GET]
+  Parameters: {"action"=>"index", "controller"=>"roles"}
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;36;1mRole Load (0.3ms)[0m   [0;1mSELECT "roles".* FROM "roles" INNER JOIN "permissions" ON "roles".id = "permissions".role_id WHERE (("permissions".user_id = 1)) [0m
+Permission denied: No matching rules found for index for #<User id: 1, name: "Andrew Canfield", username: "acanfield", crypted_password: "4a5f9e14a3b7362ec4a39fede2c707e8cf3bce48d2d9cbfb28e...", password_salt: "j-0hyXdzDODpNonw7oSs", persistence_token: "f098c2dd09913167e9298f8b6833d3f1f35677cc220fab8bfe9...", created_at: "2009-12-06 23:03:39", updated_at: "2009-12-06 23:03:39"> (roles [:student], privileges [:index], context :roles).
+Filter chain halted as [:filter_access_filter] rendered_or_redirected.
+Completed in 22ms (View: 1, DB: 1) | 403 Forbidden [http://localhost/roles]
+
+
+Processing UsersController#edit (for 127.0.0.1 at 2009-12-06 16:39:10) [GET]
+  Parameters: {"action"=>"edit", "id"=>"1", "controller"=>"users"}
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+Rendering template within layouts/application
+Rendering users/edit
+  [4;35;1mRole Load (0.4ms)[0m   [0mSELECT * FROM "roles" [0m
+  [4;36;1mRole Load (0.2ms)[0m   [0;1mSELECT "roles".id FROM "roles" INNER JOIN "permissions" ON "roles".id = "permissions".role_id WHERE ("roles"."id" = 1) AND (("permissions".user_id = 1)) LIMIT 1[0m
+  [4;35;1mRole Load (0.1ms)[0m   [0mSELECT "roles".id FROM "roles" INNER JOIN "permissions" ON "roles".id = "permissions".role_id WHERE ("roles"."id" = 2) AND (("permissions".user_id = 1)) LIMIT 1[0m
+  [4;36;1mRole Load (0.2ms)[0m   [0;1mSELECT "roles".id FROM "roles" INNER JOIN "permissions" ON "roles".id = "permissions".role_id WHERE ("roles"."id" = 3) AND (("permissions".user_id = 1)) LIMIT 1[0m
+Rendered users/_form (75.9ms)
+Completed in 92ms (View: 77, DB: 2) | 200 OK [http://localhost/users/1/edit]
+
+
+Processing UsersController#update (for 127.0.0.1 at 2009-12-06 16:39:12) [PUT]
+  Parameters: {"user"=>{"name"=>"Andrew Canfield", "password_confirmation"=>"[FILTERED]", "role_ids"=>[{"1"=>nil}, {"3"=>nil}], "username"=>"acanfield", "password"=>"[FILTERED]"}, "commit"=>"Submit", "action"=>"update", "_method"=>"put", "authenticity_token"=>"ekWmx9QCS1BlmxHzqYkely4NFQPTWgDcmHeqoR2uTLo=", "id"=>"1", "controller"=>"users"}
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+  [4;35;1mRole Load (0.6ms)[0m   [0mSELECT * FROM "roles" WHERE ("roles"."id" IN (1,3)) [0m
+  [4;36;1mRole Load (0.2ms)[0m   [0;1mSELECT "roles".* FROM "roles" INNER JOIN "permissions" ON "roles".id = "permissions".role_id WHERE (("permissions".user_id = 1)) [0m
+  [4;35;1mPermission Create (0.3ms)[0m   [0mINSERT INTO "permissions" ("updated_at", "role_id", "user_id", "created_at") VALUES('2009-12-07 00:39:12', 1, 1, '2009-12-07 00:39:12')[0m
+Redirected to http://localhost:3000/users/1
+Completed in 29ms (DB: 2) | 302 Found [http://localhost/users/1]
+
+
+Processing UsersController#show (for 127.0.0.1 at 2009-12-06 16:39:12) [GET]
+  Parameters: {"action"=>"show", "id"=>"1", "controller"=>"users"}
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+Rendering template within layouts/application
+Rendering users/show
+Completed in 18ms (View: 2, DB: 1) | 200 OK [http://localhost/users/1]
+
+
+Processing RolesController#index (for 127.0.0.1 at 2009-12-06 16:43:53) [GET]
+  Parameters: {"action"=>"index", "controller"=>"roles"}
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;35;1mRole Load (0.4ms)[0m   [0mSELECT "roles".* FROM "roles" INNER JOIN "permissions" ON "roles".id = "permissions".role_id WHERE (("permissions".user_id = 1)) [0m
+  [4;36;1mRole Load (0.3ms)[0m   [0;1mSELECT * FROM "roles" [0m
+Rendering template within layouts/application
+Rendering roles/index
+Completed in 26ms (View: 3, DB: 1) | 200 OK [http://localhost/roles]
+
+
+Processing UserSessionsController#destroy (for 127.0.0.1 at 2009-12-06 16:43:56) [GET]
+  Parameters: {"action"=>"destroy", "controller"=>"user_sessions"}
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+Redirected to http://localhost:3000/
+Completed in 15ms (DB: 0) | 302 Found [http://localhost/logout]
+
+
+Processing UsersController#index (for 127.0.0.1 at 2009-12-06 16:43:56) [GET]
+  Parameters: {"action"=>"index", "controller"=>"users"}
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT * FROM "users" [0m
+Rendering template within layouts/application
+Rendering users/index
+Completed in 86ms (View: 74, DB: 0) | 200 OK [http://localhost/]
+
+
+Processing RolesController#index (for 127.0.0.1 at 2009-12-06 16:43:59) [GET]
+  Parameters: {"action"=>"index", "controller"=>"roles"}
+Permission denied: No matching rules found for index for #<Authorization::GuestUser:0x25df7bc @role_symbols=[:guest]> (roles [:guest], privileges [:index], context :roles).
+Redirected to http://localhost:3000/login
+Filter chain halted as [:filter_access_filter] rendered_or_redirected.
+Completed in 11ms (DB: 0) | 302 Found [http://localhost/roles]
+
+
+Processing UserSessionsController#new (for 127.0.0.1 at 2009-12-06 16:43:59) [GET]
+  Parameters: {"action"=>"new", "controller"=>"user_sessions"}
+Rendering template within layouts/application
+Rendering user_sessions/new
+Completed in 13ms (View: 2, DB: 0) | 200 OK [http://localhost/login]
+
+
+Processing RolesController#index (for 127.0.0.1 at 2009-12-06 16:44:20) [GET]
+  Parameters: {"action"=>"index", "controller"=>"roles"}
+Permission denied: No matching rules found for index for #<Authorization::GuestUser:0x24faa7c @role_symbols=[:guest]> (roles [:guest], privileges [:index], context :roles).
+Redirected to http://localhost:3000/login
+Filter chain halted as [:filter_access_filter] rendered_or_redirected.
+Completed in 10ms (DB: 0) | 302 Found [http://localhost/roles]
+
+
+Processing UserSessionsController#new (for 127.0.0.1 at 2009-12-06 16:44:20) [GET]
+  Parameters: {"action"=>"new", "controller"=>"user_sessions"}
+Rendering template within layouts/application
+Rendering user_sessions/new
+Completed in 13ms (View: 2, DB: 0) | 200 OK [http://localhost/login]
